@@ -334,6 +334,45 @@ Run the above example and update values for `default`, `age`, and `job`
 
 ### Default Parameters
 
+#### Explanation
+
+Default parameters are just that - default values for parameters when you don’t pass a value for them in a function call. Take this example:  
+
+```js
+function addThreeNumbers(numA, numB, numC) {
+	return numA + numB + numC
+}
+
+addThreeNumbers(2)
+```
+
+This will return `NaN`, because the value of `numB` and `numC` are both `undefined`.  
+Let’s apply some defaults to the `numB` and `numC` parameters:  
+
+```js
+function addThreeNumbers(numA, numB = 2, numC = 1) {
+	return numA + numB + numC
+}
+
+addThreeNumbers(2)
+```
+
+Now this function will return the number `5`.  
+What if we also give a default to `numA`?  
+
+```js
+function addThreeNumbers(numA = 1, numB = 2, numC = 1) {
+	return numA + numB + numC
+}
+addThreeNumbers(2)
+```
+
+
+This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
+
+#### Exercise
+
+Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values `cat` and `white`.  The function should log a sentence `'The cat is white.'` by default.  The function substitutes the appropriate parameters when supplied arguments.
 
 ### Ternary Operator
 
