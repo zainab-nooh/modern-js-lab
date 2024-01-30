@@ -271,6 +271,8 @@ Define a variable of your choice and assign it a string value.  Next, create an 
 
 ### Import and Export
 
+#### Explanation
+
 Exporting and Importing in JavaScript is accomplished with the `import` and `export` syntax.  Create two files: `exportingFile.js` and `importingFile.js`:
 
 ```
@@ -326,10 +328,12 @@ console.log(name, age, job)
 
 When exporting additional variables, simply declare the variable like normal, and prepend the declaration with `export`.
 
+#### Exercise
+
+Run the above example and update values for `default`, `age`, and `job`
+
 ### Default Parameters
 
-Explanation: Introduce default parameters in functions.
-Exercise: Instruct students to write functions that use default parameters to handle missing arguments.
 
 ### Ternary Operator
 
