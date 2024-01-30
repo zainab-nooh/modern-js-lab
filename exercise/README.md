@@ -137,8 +137,94 @@ Use destructuring to create a variable `make` that will hold the value of `car.m
 
 ### Spread Operator
 
-Explanation: Explain the spread operator and its use in expanding arrays or objects.
-Exercise: Challenge students to combine multiple arrays or clone an object using the spread operator.
+#### Arrays
+
+##### Explanation
+
+Let's duplicate an array:
+
+```js
+const arr = [1,2,3]
+const arr2 = []
+
+arr.forEach((currentElement)=>{
+	arr2.push(currentElement)
+})
+console.log(arr2)
+```
+
+This can be simplified like so:
+
+```js
+const arr = [1,2,3]
+const arr2 = [...arr]
+```
+
+This "spreads" the values of `arr` into `arr2`. The thing to note is that you can't simply do:
+
+```js
+const arr = [1,2,3]
+const arr2 = arr
+```
+
+The reason for this is that in this last scenario, `arr2` is set to a reference to `arr`. This means that it doesn't duplicate the values, it instead points to the same place in memory that `arr` is stored. If you manipulate one, you'll see the same changes on the other:
+
+```js
+const arr = [1,2,3]
+const arr2 = arr
+arr2.push(4)
+console.log(arr);
+```
+
+Because of this, we need to manually duplicate the original array. This is where the spread (`...`) operator comes in.
+
+##### Exercise
+
+Duplicate the following array using the spread operator, and assign it to the variable `controversialPizzaToppings`:
+
+```js
+const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies']
+```
+
+Log the variable `controversialPizzaToppings`
+
+#### Objects
+
+##### Explanation
+
+Objects also need to be manually duplicated, just like arrays. The following won't work as expected:
+
+```js
+const obj1 = { foo: 'bar', x: 42 };
+const clonedObj = obj1;
+clonedObj.x = 43;
+console.log(obj1.x); //43
+```
+
+In the previous example, `obj1` is affected when we alter `clonedObj`. We can easily duplicate objects like so:
+
+```js
+const obj1 = { foo: 'bar', x: 42 };
+const clonedObj = {...obj1}
+clonedObj.x = 43;
+console.log(clonedObj.x); //43
+console.log(obj1.x); //42
+```
+
+As you can see, now the objects have different values for their respective `x` properties.
+
+##### Exercise
+
+Duplicate the following object and spread its values into a new variable `myCar`:
+
+```js
+const car = {
+	make: 'Audi',
+	model: 'q5'
+}
+```
+
+Change the `model` property of `myCar` to the string `'q7'`.  Log both objects and see that they have different values for the `model` property, while maintaining the same `make` value.
 
 ### Dynamic Keys in Objects
 
