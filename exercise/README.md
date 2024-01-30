@@ -477,5 +477,30 @@ console.log(result4)
 
 ### Optional Chaining
 
-Explanation: Describe optional chaining for safely accessing nested object properties.
-Exercise: Provide a nested object and have students access deep properties using optional chaining.
+#### Explanation
+
+Take the following code:
+
+```js
+const adventurer = {
+  name: 'Alice'
+};
+
+console.log(adventurer.dog.name);
+```
+
+This errors out, causing your entire app to crash.  That seems a bit harsh, especially if it's conceivable if the `dog` property might be added in later.  Using `console.log(adventurer.dog?.name);` will run without error and log `undefined`:
+
+```js
+const adventurer = {
+  name: 'Alice'
+};
+
+console.log(adventurer.dog?.name);
+```
+
+Much nicer!
+
+#### Exercise
+
+On the example above, check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.
