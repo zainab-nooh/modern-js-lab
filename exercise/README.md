@@ -376,8 +376,49 @@ Create a function that takes two parameters, `noun` and `adjective`, both with t
 
 ### Ternary Operator
 
-Explanation: Introduce the ternary operator as a concise if-else syntax.
-Exercise: Provide a scenario for students to implement a simple decision-making process using the ternary operator.
+#### Explanation
+
+Here's some if/else code:
+
+```js
+let age = 22;
+let access;
+
+if(age > 21){
+	access = 'yes'
+} else {
+	access = 'no';
+}
+console.log(access);//yes
+```
+
+We can shorten this up like so:
+
+```js
+let age = 22;
+let access = (age > 21) ? 'yes' :  'no'
+console.log(access); //yes
+```
+
+There's three parts to a ternary:
+
+- The boolean expression is inside the `()`
+- If the boolean expression evaluates to `true` then the variable on the left of the `=` is set to whatever comes after the `?`
+- If the boolean expression evaluates to `false` then the variable on the left of the `=` is set to whatever comes after the `:`
+
+#### Exercise
+
+Shorten the following `if/else` statement using a ternary:
+
+```js
+let pizza = 'tasty';
+
+if(pizza === 'tasty'){
+	console.log('yum')
+} else {
+	console.log('yuck')
+}
+```
 
 ### And/Boolean Gates
 
