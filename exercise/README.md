@@ -479,7 +479,3 @@ console.log(result4)
 
 Explanation: Describe optional chaining for safely accessing nested object properties.
 Exercise: Provide a nested object and have students access deep properties using optional chaining.
-
-## Resources:
-
-Provide a list of resources or documentation links for further reading on each topic. 
