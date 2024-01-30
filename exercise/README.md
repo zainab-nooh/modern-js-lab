@@ -228,8 +228,46 @@ Change the `model` property of `myCar` to the string `'q7'`.  Log both objects a
 
 ### Dynamic Keys in Objects
 
-Explanation: Discuss how to use variables as object keys.
-Exercise: Ask students to create an object using dynamic keys based on given variables.
+#### Explanation
+
+We can use variables when creating keys for our objects like so:
+
+```js
+const key = 'DYNAMIC_KEY';
+const obj = {
+    [key]: 'ES6!'
+};
+
+console.log(obj); // > { 'DYNAMIC_KEY': 'ES6!' }
+```
+
+Note that if you didn't put the `[]` around `key` the following would happen:
+
+```js
+const key = 'DYNAMIC_KEY';
+const obj = {
+    key: 'ES6!'
+};
+
+console.log(obj); // > { key: 'ES6!' }
+```
+
+Before a relatively recent version of JS (called ES6 or ECMAScript 6), we'd have to do the following:
+
+```js
+const key = 'DYNAMIC_KEY';
+const obj = {}
+obj[key] = 'ES6!'
+console.log(obj); // > { 'DYNAMIC_KEY': 'ES6!' }
+```
+
+Objects in JS allow for array style access, so `obj.foo = 'bar'` is the same as `obj['foo'] = 'bar'`. The advantage here is that you can use variables for keys. This is fine too, but I like the first example.
+
+This might not seem terribly useful, but there are some situations in React where it can save you from writing a lot of code!
+
+#### Exercise
+
+Define a variable of your choice and assign it a string value.  Next, create an object and use that variable as a key for a property.  The value of the property can be whatever.  Log the object to make sure it worked as expected.
 
 ### Import and Export
 
