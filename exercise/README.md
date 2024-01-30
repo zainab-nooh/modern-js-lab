@@ -422,8 +422,56 @@ if(pizza === 'tasty'){
 
 ### And/Boolean Gates
 
-Explanation: Cover the use of logical operators for boolean logic and control flow.
-Exercise: Create a scenario where students use logical AND or OR to make decisions in code.
+#### Explanation
+
+When running `&&` and `||` statements, something interesting occurs when not using them within the context of an `if/else` statement
+
+##### `&&`
+ 
+```js
+const result1 = "" && "foo"; // result is assigned "" (empty string)
+const result2 = 2 && 0; // result is assigned 0
+const result3 = "foo" && 2; // result is assigned 2
+```
+
+To understand what's going on here, we have to remember about falsey values. In the example above, the following values are falsey:
+
+- `""` (empty string)
+- 0
+
+The following values are truthy:
+
+- `"foo"` (non-empty string)
+- 2
+
+The `&&` will return the first falsey value it finds.  If all values are truthy, it will return the last truthy value.
+
+##### `||`
+
+`||` is the opposite:
+
+```js
+const result1 = "" || "foo"; // result is assigned "foo"
+const result2 = 2 || 0; // result is assigned 2
+const result3 = "" || 0; // result is assigned 0
+```
+
+It will return the first truthy value in the chain.  If all values are falsey, it returns the last falsey value.
+
+#### Exercise
+
+Without running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
+
+```js
+const result1 = "bar" && "foo";
+const result2 = false || 243;
+const result3 = 42 && false;
+const result3 = myVar || 3000;
+console.log(result1)
+console.log(result2)
+console.log(result3)
+console.log(result4)
+```
 
 ### Optional Chaining
 
