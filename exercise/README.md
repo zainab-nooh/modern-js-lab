@@ -99,6 +99,8 @@ Use destructuring to pull out the first and second values of the array and place
 
 #### Objects
 
+##### Explanation
+
 We can something similar with objects. Let's say we wanted to do something like this:
 
 ```js
