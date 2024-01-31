@@ -16,7 +16,7 @@ While the modern syntax has many benefits, a strong understanding of the traditi
 
 In this lab, we will provide a brief explanation of each topic, an example of the topic, as well as the traditional way of accomplishing the same task so that you can see how it relates to basic programming as a whole.
 
-## Topics and Exercises
+## Review
 
 ### `.map` Method
 
@@ -50,15 +50,7 @@ The `.map()` property of arrays will loop through the entire array and return 
 
 The important thing to note here is that `.map()` returns a new array with the altered values.  It does *not* alter the original array.
 
-#### Exercise
 
-Use `.map()` to iterate over the following array:
-
-```
-[13, 87, 2, 89, 12, 4, 90, 63]
-```
-
-Create a new array where each value is multiplied by 2 and log the new array.
 
 ### Destructuring
 
@@ -87,15 +79,7 @@ console.log(z); // 2
 
 Basically, the `const [y, z] = x` will create a variable `y` and assign it to the first element in `x`. It will also create a variable `z` and assign it to the second element in `x`.  You have full control of the variable names.  These are just examples.
 
-##### Exercise
 
-Given the following array:
-
-```javascript
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies']
-```
-
-Use destructuring to pull out the first and second values of the array and place them into variables.  Log both variables.
 
 #### Objects
 
@@ -124,18 +108,7 @@ console.log(b); // 2
 
 The important thing to note is that the variables being created `const {a, b}` must match properties that exist in the object. `const {foo, bar} = obj` wouldn't work because `obj` doesn't have the properties `foo` and `bar`
 
-##### Exercise
 
-Given the following object:
-
-```js
-const car = {
-	make: 'Audi',
-	model: 'q5'
-}
-```
-
-Use destructuring to create a variable `make` that will hold the value of `car.make`.  Do the same for `model` and `car.model`
 
 ### Spread Operator
 
@@ -180,15 +153,7 @@ console.log(arr);
 
 Because of this, we need to manually duplicate the original array. This is where the spread (`...`) operator comes in.
 
-##### Exercise
 
-Duplicate the following array using the spread operator, and assign it to the variable `controversialPizzaToppings`:
-
-```js
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies']
-```
-
-Log the variable `controversialPizzaToppings`
 
 #### Objects
 
@@ -215,18 +180,7 @@ console.log(obj1.x); //42
 
 As you can see, now the objects have different values for their respective `x` properties.
 
-##### Exercise
 
-Duplicate the following object and spread its values into a new variable `myCar`:
-
-```js
-const car = {
-	make: 'Audi',
-	model: 'q5'
-}
-```
-
-Change the `model` property of `myCar` to the string `'q7'`.  Log both objects and see that they have different values for the `model` property, while maintaining the same `make` value.
 
 ### Dynamic Keys in Objects
 
@@ -267,9 +221,6 @@ Objects in JS allow for array style access, so `obj.foo = 'bar'` is the same a
 
 This might not seem terribly useful, but there are some situations in React where it can save you from writing a lot of code!
 
-#### Exercise
-
-Define a variable of your choice and assign it a string value.  Next, create an object and use that variable as a key for a property.  The value of the property can be whatever.  Log the object to make sure it worked as expected.
 
 ### Import and Export
 
@@ -330,9 +281,6 @@ console.log(name, age, job)
 
 When exporting additional variables, simply declare the variable like normal, and prepend the declaration with `export`.
 
-#### Exercise
-
-Run the above example and update values for `default`, `age`, and `job`
 
 ### Default Parameters
 
@@ -372,9 +320,7 @@ addThreeNumbers(2)
 
 This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
 
-#### Exercise
 
-Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values `cat` and `white`.  The function should log a sentence `'The cat is white.'` by default.  The function substitutes the appropriate parameters when supplied arguments.
 
 ### Ternary Operator
 
@@ -408,19 +354,6 @@ There's three parts to a ternary:
 - If the boolean expression evaluates to `true` then the variable on the left of the `=` is set to whatever comes after the `?`
 - If the boolean expression evaluates to `false` then the variable on the left of the `=` is set to whatever comes after the `:`
 
-#### Exercise
-
-Shorten the following `if/else` statement using a ternary:
-
-```js
-let pizza = 'tasty';
-
-if(pizza === 'tasty'){
-	console.log('yum')
-} else {
-	console.log('yuck')
-}
-```
 
 ### And/Boolean Gates
 
@@ -460,20 +393,6 @@ const result3 = "" || 0; // result is assigned 0
 
 It will return the first truthy value in the chain.  If all values are falsey, it returns the last falsey value.
 
-#### Exercise
-
-Without running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
-
-```js
-const result1 = "bar" && "foo";
-const result2 = false || 243;
-const result3 = 42 && false;
-const result3 = myVar || 3000;
-console.log(result1)
-console.log(result2)
-console.log(result3)
-console.log(result4)
-```
 
 ### Optional Chaining
 
@@ -501,6 +420,105 @@ console.log(adventurer.dog?.name);
 
 Much nicer!
 
-#### Exercise
+## Lab exercises
 
-On the example above, check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.
+### Exercise 1:  Using `.map()`
+
+Use `.map()` to iterate over the following array:
+
+```javascript
+const nums = [13, 87, 2, 89, 12, 4, 90, 63];
+```
+
+Create a new array where each value is multiplied by 2 and log the new array.
+
+### Exercise 2: Destructuring Arrays
+
+Given the following array:
+
+```javascript
+const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
+```
+
+Use destructuring to pull out the first and second values of the array and place them into variables.  Log both variables.
+
+### Exercise 3: Destructuring Objects
+
+Given the following object:
+
+```javascript
+const car = {
+	make: 'Audi',
+	model: 'q5'
+};
+```
+
+Use destructuring to create a variable `make` that will hold the value of `car.make`.  Do the same for `model` and `car.model`.
+
+### Exercise 4: Spread Operator on Arrays
+
+Duplicate the following array using the spread operator, and assign it to the variable `controversialPizzaToppings`:
+
+```javascript
+const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
+```
+
+Log the variable `controversialPizzaToppings`
+
+### Exercise 5: Spread Operator on Objects
+
+Duplicate the following object and spread its values into a new variable `myCar`:
+
+```javascript
+const car = {
+	make: 'Audi',
+	model: 'q5'
+};
+```
+
+Change the `model` property of `myCar` to the string `'q7'`.  Log both objects and see that they have different values for the `model` property, while maintaining the same `make` value.
+
+### Exercise 6: Dynamic Keys in Objects
+
+Define a variable of your choice and assign it a string value.  Next, create an object and use that variable as a key for a property.  The value of the property can be whatever.  Log the object to make sure it worked as expected.
+
+### Exercise 7: Import and Export
+
+Follow the steps from the review of "Import and Export" and update values for `default`, `age`, and `job`.
+
+### Exercise 8: Default Parameters
+
+Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values `cat` and `white`.  The function should log a sentence `'The cat is white.'` by default.  The function substitutes the appropriate parameters when supplied arguments.
+
+### Exercise 9: Terinary Operator
+
+Shorten the following `if/else` statement using a ternary:
+
+```javascript
+let pizza = 'tasty';
+
+if (pizza === 'tasty') {
+	console.log('yum')
+} else {
+	console.log('yuck')
+}
+```
+
+#### Exercise 10: And/Boolean Gates
+
+Prior to running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
+
+```javascript
+const result1 = "bar" && "foo";
+const result2 = false || 243;
+const result3 = 42 && false;
+const result3 = myVar || 3000;
+console.log(result1)
+console.log(result2)
+console.log(result3)
+console.log(result4)
+```
+
+### Exercise 11: Optional Chaining
+
+Refer back to the description of optional chaining and check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.
