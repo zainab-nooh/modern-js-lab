@@ -1,20 +1,16 @@
 # ![Modern Javascript Syntax Lab - Exercise](./assets/hero.png)
 
-Modern JavaScript Syntax Lab Outline
-
 ## Introduction
 
 In the past decade, roughly, JavaScript has undergone a massive transformation in its syntax. This has largely been due to accommodate developer requests to make the syntax easier to use. Many of the new features that have come out have been incorporated as standard practices in frameworks such as React, Vue, Angular, and many others. The important thing to note here is that most these changes do not provide any additional functionality. Rather, they provide a more efficient way to write code using the language.
 
 ## Learning goals:
 
-In this lab, you'll explore modern JavaScript syntax and compare it to more traditional syntax.  
-
-While the modern syntax has many benefits, a strong understanding of the traditional way of writing JavaScript provides a crucial foundation not just for JS, but for other languages as well. Not all languages have these kinds of shortcuts. As a developer, you'll be required to learn other languages that have their own nuances but that are built upon the same foundations as JavaScript. It's important that the modern syntax covered in this lesson not become a crutch, so that when required to use a different language, you don't have to learn everything from scratch
+In this lab, you'll explore modern JavaScript syntax. While the modern syntax has many benefits, a strong understanding of the traditional way of writing JavaScript provides a crucial foundation not just for JS, but for other languages as well. Not all languages have these kinds of shortcuts. As a developer, you'll be required to learn other languages that have their own nuances but that are built upon the same foundations as JavaScript. It's important that the modern syntax covered in this lesson not become a crutch, so that when required to use a different language, you don't have to learn everything from scratch
 
 ## Lab structure
 
-In this lab, we will provide a brief explanation of each topic, an example of the topic, as well as the traditional way of accomplishing the same task so that you can see how it relates to basic programming as a whole.
+In the **Review section**, we will provide a brief explanation of each topic. Each review topic will correspond with an exercise in the **Lab exercises** section.
 
 ## Review
 
@@ -54,6 +50,7 @@ const [firstPet, secondPet] = petsArray;
 console.log(firstPet); // 'Rover'
 console.log(secondPet); // 'Snuffles'
 
+// Equivalent in traditional bracket notation:
 console.log(petsArray[0]); // 'Rover'
 console.log(petsArray[1]); // 'Snuffles'
 ```
@@ -81,6 +78,7 @@ const { name, role } = person;
 console.log(name); // 'Alex'
 console.log(role); // 'Software Engineer'
 
+// Equivalent in traditional dot notiation:
 console.log(person.name) // 'Alex'
 console.log(person.role) // 'Software Engineer'
 ```
@@ -407,7 +405,6 @@ In this application, it's conceivable that the `dog` property might be added in 
 
 Using `console.log(adventurer.dog?.name);` will allow our code to run without an error:
 
-
 ```javascript
 const adventurer = {
   name: 'Alice'
@@ -418,17 +415,7 @@ console.log(adventurer.dog?.name); // undefined
 
 Now, the non existent property causes an error. Instead our code logs a value of `undefined`.
 
-
-
-
-
-
-
-
-
-
-
-
+tktk Lauren - Should the review section and lab exercises go in a separate readme files?
 
 ## Lab exercises
 
@@ -450,7 +437,7 @@ Given the following array:
 const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 ```
 
-Use destructuring to pull out the first and second values of the array and place them into variables.  Log both variables.
+Use destructuring to pull out the first and second values of the array and place them into variables. Log both variables.
 
 ### Exercise 3: Destructuring objects
 
@@ -463,7 +450,7 @@ const car = {
 };
 ```
 
-Use destructuring to create a variable `make` that will hold the value of `car.make`.  Do the same for `model` and `car.model`.
+Use destructuring to create a variable `make` that will hold the value of `car.make`. Do the same for `model` and `car.model`.
 
 ### Exercise 4: Applying the spread operator on arrays
 
@@ -473,7 +460,7 @@ Duplicate the following array using the spread operator, and assign it to the va
 const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 ```
 
-Log the variable `controversialPizzaToppings`
+Log the variable `controversialPizzaToppings`.
 
 ### Exercise 5: Applying the spread operator on objects
 
@@ -486,23 +473,82 @@ const car = {
 };
 ```
 
-Change the `model` property of `myCar` to the string `'q7'`.  Log both objects and see that they have different values for the `model` property, while maintaining the same `make` value.
+Change the `model` property of `myCar` to the string `'q7'`. Log both objects and make sure that they have different values for the `model` property, while maintaining the same `make` value.
 
-### Exercise 6: Dynamic Keys in Objects
+### Exercise 6: Dynamic keys in objects
 
 Define a variable of your choice and assign it a string value.  Next, create an object and use that variable as a key for a property.  The value of the property can be whatever.  Log the object to make sure it worked as expected.
 
 ### Exercise 7: Import and Export
 
-Follow the steps from the review of "Import and Export" and update values for `default`, `age`, and `job`.
+Follow the steps below for some practice with `import` and `export`. Update the values for `default`, `age`, and `job` accordingly:
 
-### Exercise 8: Default Parameters
+1. Initialize a node project:
 
-Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values `cat` and `white`.  The function should log a sentence `'The cat is white.'` by default.  The function substitutes the appropriate parameters when supplied arguments.
+```bash
+npm init -y
+```
 
-### Exercise 9: Terinary Operator
+2. Add the following property to `package.json`:
 
-Shorten the following `if/else` statement using a ternary:
+```json
+"type":"module",
+```
+
+3. Create two files: `exportingFile.js` and `importingFile.js`:
+
+```bash
+touch exportingFile.js
+touch importingFile.js
+```
+
+4. In `exportingFile.js` add the following:
+
+```javascript
+export default 'Matt';
+```
+
+5. In `importingFile.js` add the following:
+
+```javascript
+import name from './exportingFile.js';
+console.log(name);
+```
+
+6. Run `importingFile.js` like so:
+
+```bash
+node importingFile.js
+```
+
+7. To export additional values, update `exportingFile.js` like so:
+
+```javascript
+export default 'Matt';
+export const age = 43;
+export const job = 'programmer';
+```
+
+These additions can be imported by updating `importingFile.js` like so:
+
+```javascript
+import name, { age, job } from './exportingFile.js';
+console.log(name, age, job);
+```
+
+### Exercise 8: Default parameters
+
+Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values:
+
+1. `cat`
+
+2. `white`
+
+The function should log a sentence `'The cat is white.'` by default. The function should substitute the appropriate parameters when supplied arguments.
+
+### Exercise 9: Terinary operator
+
+Convert the following `if...else` statement in to a ternary:
 
 ```javascript
 let pizza = 'tasty';
@@ -514,7 +560,9 @@ if (pizza === 'tasty') {
 }
 ```
 
-### Exercise 10: And/Boolean Gates
+tktk Lauren - I think these last two questions can be removed:
+
+### Exercise 10: Boolean gates
 
 Prior to running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
 
@@ -529,15 +577,6 @@ console.log('result1:', result3)
 console.log('result1:', result4)
 ```
 
-### Exercise 11: Optional Chaining
+### Exercise 11: Optional chaining
 
 Refer back to the description of optional chaining and check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.
-
-
-
-
-
-
-
-
-
