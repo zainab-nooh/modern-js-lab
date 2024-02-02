@@ -125,7 +125,7 @@ const fruitsAndVegetables = [...fruits, ...vegetables];
 console.log(fruitsAndVegetables) // ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
 ```
 
-> 🚨 tktk pitfalls/common error?
+> 🚨 When merging multiple arrays, be sure to include the spread operator. Not doing so can result in unintentional nesting.
 
 ### Applying the spread operator on objects
 
@@ -255,6 +255,42 @@ console.log(MyData.myString);
 
 This allows for more organized code by separating concerns into modules.
 
+### Default parameters
+
+Default parameters are just that - default values for parameters. These defaults are applied when no value is passed for those parameters during a function call.
+
+Take this example:  
+
+```javascript
+function addThreeNumbers(numA, numB, numC) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+This will return `NaN`, because the value of `numB` and `numC` are both `undefined`. Let’s apply some defaults to the `numB` and `numC` parameters:  
+
+```js
+function addThreeNumbers(numA, numB = 2, numC = 1) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+Now this function will return the number `5`. What if we also give a default to `numA`?  
+
+```js
+function addThreeNumbers(numA = 1, numB = 2, numC = 1) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
+
 ### The ternary operator
 
 The ternary operator gives us a way to handle conditional logic in a single line of code. Ternaries can be viewed as a more concise version of an `if...else` statement. It can also simplify the process of assigning a value to a variable based on a condition.
@@ -297,7 +333,7 @@ Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when
 
 1. **The `&&` operator**
 
-The `&&` operator evaluates expressions from left to right and returns the first falsy value it encounters. If all values are truthy, it returns the last value. This behavior can be utilized for assignments and expressions outside conditional statements.
+The `&&` operator evaluates expressions from left to right and returns the **first falsy value** it encounters. If all values are truthy, it returns the last value.
 
 Let's take a look at a few examples of the `&&` operator at work:
 
@@ -322,29 +358,29 @@ Let's take a look at a few examples of the `&&` operator at work:
 	console.log(result) // Output: 'bar'
 	```
 
-> 💡 Remember, in JavaScript, falsy values include `""` (empty string), `0`, `null`, `undefined`, `NaN`, and `false`. Everything else is considered truthy.
+> 💡 Remember, in JavaScript, falsy values include `''` (empty strings), `0`, `null`, `undefined`, `NaN`, and `false`. Everything else is considered truthy.
 
 2. **The `||` operator**
 
-On the other hand, the `||` operator returns the first truthy value it encounters as it evaluates expressions from left to right. If all values are falsy, it returns the value of the last operand.
+The `||` operator evaluates expressions from left to right and returns the **first truthy value** it encounters. If all values are falsy, it returns the last value.
 
 Let's take a look at a few examples of the `||` operator at work:
 
-- When the initial expression being evaluated (`''`) is falsy, and no truthy value is encountered until `'foo'`, `result` is assigned `'foo'` as it's the first truthy value.
+- When the first expression (`''`) is falsy, `result` is assigned `'foo'` as it's the first truthy value.
 
 	```javascript
 	const result = '' || 'foo';
 	console.log(result); // Output: 'foo'
 	```
 
-- If the first value (`2`) is truthy, the evaluation stops, and `result` is assigned this first truthy value (`2`), ignoring subsequent expressions.
+- If the first value (`2`) is truthy, the evaluation stops, and `result` is assigned the first value (`2`).
 
 	```javascript
 	const result = 2 || 0;
 	console.log(result); // Output: 2
 	```
 
-- When all values being evaluated are falsy (`''` and `0`), `result` is assigned the value of the last expression (`0`), as no truthy value is found.
+- When all values being evaluated are falsy (`''` and `0`), `result` is assigned the last value (`0`), as no truthy value is found.
 
 	```javascript
 	const result = '' || 0;
@@ -352,7 +388,6 @@ Let's take a look at a few examples of the `||` operator at work:
 	```
 
 > 💡 The `||` operator can be helpful for setting fallback or default values.
-
 
 ### Optional chaining
 
