@@ -1,506 +1,582 @@
 # ![Modern Javascript Syntax Lab - Exercise](./assets/hero.png)
 
-Modern JavaScript Syntax Lab Outline
-
 ## Introduction
 
-Brief Overview: In the past decade, roughly, JavaScript has undergone a massive transformation in its syntax.  This has largely been due to accommodate developer requests to make the syntax easier to use.  Many of the new features that have come out have been incorporated as standard practices in frameworks such as React, Vue, Angular, and many others.  The important thing to note here is that most these changes do not provide any additional functionality.  Rather, they provide a more efficient way to write code using the language.
+In the past decade, roughly, JavaScript has undergone a massive transformation in its syntax. This has largely been due to accommodate developer requests to make the syntax easier to use. Many of the new features that have come out have been incorporated as standard practices in frameworks such as React, Vue, Angular, and many others. The important thing to note here is that most these changes do not provide any additional functionality. Rather, they provide a more efficient way to write code using the language.
 
-## Learning Goals:
+## Learning goals:
 
-In this lab, you'll explore modern JavaScript syntax and compare it to more traditional syntax.  
+In this lab, you'll explore modern JavaScript syntax. While the modern syntax has many benefits, a strong understanding of the traditional way of writing JavaScript provides a crucial foundation not just for JS, but for other languages as well. Not all languages have these kinds of shortcuts. As a developer, you'll be required to learn other languages that have their own nuances but that are built upon the same foundations as JavaScript. It's important that the modern syntax covered in this lesson not become a crutch, so that when required to use a different language, you don't have to learn everything from scratch
 
-While the modern syntax has many benefits, a strong understanding of the traditional way of writing JavaScript provides a crucial foundation not just for JS, but for other languages as well.  Not all languages have these kinds of shortcuts.  As a developer, you'll be required to learn other languages that have their own nuances but that are built upon the same foundations as JavaScript.  It's important that the modern syntax covered in this lesson not become a crutch, so that when required to use a different language, you don't have to learn everything from scratch
+## Lab structure
 
-## Lab Structure
+In the **Review section**, we will provide a brief explanation of each topic. Each review topic will correspond with an exercise in the **Lab exercises** section.
 
-In this lab, we will provide a brief explanation of each topic, an example of the topic, as well as the traditional way of accomplishing the same task so that you can see how it relates to basic programming as a whole.
+## Review
 
-## Topics and Exercises
+### `Array.prototype.map()`
 
-### `.map` Method
+The `Array.prototype.map()` method returns a new array with the results of calling a function on every element in an existing array. This allows for the transformation of each element inside the array, without altering the original. 
 
-#### Explanation
+Take a look at the example below:
 
-Let's say we wanted to duplicate an array, but change the values ever so slightly. Normally we'd have to do something like this:
+```javascript
+const array1 = ['vanilla', 'chocolate', 'strawberry'];
 
-```js
-const arr1 = ['vanilla', 'chocolate', 'strawberry']
-const arr2 = []
-
-arr1.forEach((currentElement)=>{
-	arr2.push(currentElement + ' ice cream')
-})
-
-console.log(arr2); // ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
-```
-
-We can shorten this up a bit by doing:
-
-```js
-const arr1 = ['vanilla', 'chocolate', 'strawberry']
-const arr2 = arr1.map((currentElement)=>{
+const array2 = array1.map((currentElement) => {
 	return currentElement + ' ice cream'
-})
+});
 
-console.log(arr2); // ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
+console.log(array2); // ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
 ```
 
-The `.map()` property of arrays will loop through the entire array and return a new array with each value in the original array altered somehow. The way each element is altered is determined by what is returned by the callback function that is passed to `.map()`. Within that callback function, you'll notice the `currentElement` parameter passed to the callback function. This variable could be called anything, but the value is always the value of the current element in the array as we loop through it.
+In this example, we've used the `Array.prototype.map()` method on `array1` to generate `array2`. Each element in `array2` is the result of appending `' ice cream'` to the end of a string element in `array1`.
 
-The important thing to note here is that `.map()` returns a new array with the altered values.  It does *not* alter the original array.
+The `Array.prototype.map()` method is used to iterate over `array1`. For every element in `array1`, it will call upon the provided function. When the function is called upon, it receives the current element being processed as an argument. The value returned from the function will take the place of the original element in the new array. 
 
-#### Exercise
+> 💡 `Array.prototype.map()` returns a **new array** with altered values. It does *not* alter the original array.
+
+### Array destructuring
+
+Array destructuring in JavaScript is a way of unpacking the elements of an array. With array destructuring, we can extract elements from an array and store them in variables with a single line of code.
+
+When we destructure an array, the elements are matched positionally with the variables we define, meaning the order in which we declare variables corresponds with the order of elements in the array. 
+
+```javascript
+const petsArray = ['Rover', 'Snuffles', 'Toto', 'Spot'];
+
+const [firstPet, secondPet] = petsArray;
+
+console.log(firstPet); // 'Rover'
+console.log(secondPet); // 'Snuffles'
+
+// Equivalent in traditional bracket notation:
+console.log(petsArray[0]); // 'Rover'
+console.log(petsArray[1]); // 'Snuffles'
+```
+
+In the example above, the first two elements of `petsArray` are unpacked into `firstPet` and `secondPet`.
+
+tktk expand on this
+tktk pitfalls of positionally based extraction
+
+> 💡 You have full control of the variable names!
+
+### Object destructuring
+
+Destructuring can also be applied to objects. With object destructuring, we can extract properties from an object. Instead of accessing properties through dot notation or bracket notation, the values of specific properties in an object can be assigned to variables.
+
+```javascript
+const person = {
+  name: 'Alex',
+  role: 'Software Engineer'
+};
+
+// Object destructuring:
+const { name, role } = person;
+
+console.log(name); // 'Alex'
+console.log(role); // 'Software Engineer'
+
+// Equivalent in traditional dot notiation:
+console.log(person.name) // 'Alex'
+console.log(person.role) // 'Software Engineer'
+```
+
+In the example above, the `person` object is deconstructed to extract the `name` and `role` properties. This approach allows us to access the values of `name` and `role` without having to use dot notation for each property. 
+
+> 🚨 Unlike array destructuring, where elements are matched based on their position, the variables created in object destructuring, such as `const { name, role }`, need to match the names of existing properties in the object.
+
+### Applying the spread operator on arrays
+
+The spread operator (`...`) gives us a way to duplicate or combine arrays. Instead of manually copying elements from one array to another using loops, the spread operator allows us to directly copy the elements of one array into another.
+
+```javascript
+const originalArray = [1, 2, 3];
+const duplicateArray = [...arr];
+
+console.log(duplicateArray) // [1, 2, 3]
+```
+
+In the example above, `duplicateArray` in an entirely separate array produced by copying the contents of `originalArray`.
+
+This differs from simply assigning on array to another, which only creates a reference, not a copy:
+
+```javascript
+const originalArray = [1, 2, 3];
+const referenceArray = originalArray; // referenceArray is now a reference to originalArray
+
+referenceArray.push(4); // Modifying referenceArray also modifies originalArray
+console.log(originalArray); // [1, 2, 3, 4]
+```
+
+The spread operator prevents this issue by ensuring the new array is an independent copy that shares no references with the original. This can be useful when we need to maintain the immutability of the original array.
+
+The spread operator can also merge multiple arrays into one:
+
+```javascript
+const fruits = ['apple', 'orange', 'banana'];
+const vegetables = ['broccoli', 'carrot', 'spinach'];
+
+const fruitsAndVegetables = [...fruits, ...vegetables];
+
+console.log(fruitsAndVegetables) // ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
+```
+
+> 🚨 When merging multiple arrays, be sure to include the spread operator. Not doing so can result in unintentional nesting.
+
+### Applying the spread operator on objects
+
+The spread operator can also be applied to objects:
+
+```javascript
+const originalObject = {
+	foo: 'Hello', bar: 100
+};
+
+const clonedObject = { ...originalObject }
+console.log('Clone: ', clonedObject) // { foo: 'Hello', bar: 100 }
+```
+
+In the example above, we can see how the properties of `originalObject` have been copied over in to a new object called `clonedObject`.
+
+The use of the spread operator here differs significantly from direct assignment:
+
+```javascript
+const originalObject = {
+	foo: 'Hello', bar: 100
+};
+
+const clonedObject = originalObject
+clonedObject.foo = 'Goodbye'
+
+console.log(originalObject) // { foo: 'Goodbye', bar: 100 }
+```
+
+The example above demonstrates a pitfall of attempting to clone an object **without the spread operator**. When `clonedObject` is assigned `originalObject` directly, it doesn't actually create a new, independent object. Instead, `clonedObject` becomes a reference to `originalObject`. This means any changes made to `clonedObject` also affect `originalObject`, as they both point to the same data.
+
+This issue can be remedied when we apply the spread operator:
+
+```javascript
+const originalObject = {
+	foo: 'Hello', bar: 100
+};
+
+// Copy the properties of originalObject:
+const clonedObject = { ...originalObject }
+
+// Update the properties of clonedObject:
+clonedObject.foo = 'Goodbye'
+clonedObject.bar = 0
+
+console.log('Original: ',originalObject) // { foo: 'Hello', bar: 100 }
+console.log('Clone: ', clonedObject) // { foo: 'Goodbye', bar: 0 }
+```
+
+With the spread operator, `clonedObject` is a brand new object, with its own separate copy of the data from `originalObject`. Now, modifying `clonedObject` will not impact the `originalObject`
+
+### Dynamic keys in objects
+
+Through bracket notation, variables and expressions can be used as dynamic keys in an object. Dynamic keys can be used to create, access, and modify properties in an object. Dynamic keys enhance our ability to access data. This approach is particularly useful in scenarios where key names are not known ahead of time or when they need to be computed on the fly. It also allows for more concise and readable code, avoiding the need for additional steps when assigning properties to objects.
+
+Take for example, the use of `selectedFruit` as a dynamic key in the codeblock below:
+
+```javascript
+const fruitInventory = {
+  apples: 2,
+  oranges: 4
+};
+
+const selectedFruit = 'apples'; // Variable as a dynamic key
+const selectedFruitCount = fruitInventory[selectedFruit];
+
+console.log(selectedFruitCount); // 2
+```
+
+This technique can be extended to the creation of objects, where property names are determined dynamically:
+
+```javascript
+const fruitType = "bananas"; // Variable as a dynamic key
+
+const fruitInventory = {
+  [fruitType]: 5,
+};
+
+console.log(fruitInventory ); // { bananas: 5 }
+```
+
+Using square brackets (`[]`) around `fruitType` in the object declaration tells JavaScript to use the variable's value as the property name. Without the brackets, the string `'fruitType'` would be used as the key, rather than its value (`'bananas'`).
+
+### `import` and `export`
+
+In JavaScript, the `import` and `export` syntax allows us to share code between different files. This is a more modern approach compared to the `require` and `module.exports` syntax used in CommonJS. 
+
+With `export`, you can make functions, objects, or primitives available for use in other files. 
+
+There are two main types of exports: 
+
+1. **Named exports**: For exporting multiple items from a file:
+
+```javascript
+export const myNumber = 123;
+export const myString = 'Hello';
+```
+
+2. **Default exports**: For exporting a single item from a file:
+```javascript
+export default function superCoolFunction() {/* ... */};
+```
+
+> 🏆 It's possible to mix default and named exports in a single module, but it's a best practice to stick to one style for consistency and clarity.
+
+Using `import`, you can bring those exported items into another file.
+
+1. **Importing named exports**:
+
+```javascript
+import { myNumber, myString } from './myData.js';
+```
+
+2. **Importing a default export**:
+
+```javascript
+import superCoolFunction from './superCoolFunction.js';
+```
+
+You can also import all named exports as a single object, which is useful when dealing with modules that export several items:
+
+```javascript
+import * as MyData from './myData.js';
+console.log(MyData.myNumber);
+console.log(MyData.myString);
+```
+
+This allows for more organized code by separating concerns into modules.
+
+### Default parameters
+
+Default parameters are just that - default values for parameters. These defaults are applied when no value is passed for those parameters during a function call.
+
+Take this example:  
+
+```javascript
+function addThreeNumbers(numA, numB, numC) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+This will return `NaN`, because the value of `numB` and `numC` are both `undefined`. Let’s apply some defaults to the `numB` and `numC` parameters:  
+
+```js
+function addThreeNumbers(numA, numB = 2, numC = 1) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+Now this function will return the number `5`. What if we also give a default to `numA`?  
+
+```js
+function addThreeNumbers(numA = 1, numB = 2, numC = 1) {
+	return numA + numB + numC
+};
+
+addThreeNumbers(2);
+```
+
+This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
+
+### The ternary operator
+
+The ternary operator gives us a way to handle conditional logic in a single line of code. Ternaries can be viewed as a more concise version of an `if...else` statement. It can also simplify the process of assigning a value to a variable based on a condition.
+
+A ternary consists of three parts:
+
+1. **Condition**: A boolean expression evaluated for truthiness, placed before the `?`.
+2. **True Expression**: The value assigned to the variable if the condition is `true`, located immediately after the `?`.
+3. **False Expression**: The value assigned to the variable if the condition is `false`, following the `:`.
+
+Consider the following example using an `if...else` statement:
+
+```javascript
+const age = 22;
+let access
+
+if (age > 21) {
+  access = 'Yes';
+} else {
+  access = 'No';
+}
+
+console.log(access); // 'Yes'
+```
+
+This logic can be streamlined using a ternary:
+
+```javascript
+const age = 22;
+let access = age > 21 ? 'Yes' : 'No';
+
+console.log(access); // 'Yes'
+```
+
+> 💡 The ternary operator is a powerful tool for simplifying conditional expressions, making it ideal for straightforward assignments based on a single condition.
+
+### Boolean gates
+
+Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when used outside of `if...else` statements. In this context, they can be used to evaluate and return values directly, based on the truthiness or falsiness of the values involved.
+
+1. **The `&&` operator**
+
+The `&&` operator evaluates expressions from left to right and returns the **first falsy value** it encounters. If all values are truthy, it returns the last value.
+
+Let's take a look at a few examples of the `&&` operator at work:
+
+- When the first expression (`false`) being evaluated is falsy, and `result` will be assigned that value (`false`).
+
+	```javascript
+	const result = false && 'foo';
+	console.log(result) // Output: false
+	```
+
+- When the first value is truthy (`'hello'`) and the second value is falsy (`''`), the `result` is assigned the empty string (`''`), as it is the first falsy value encountered.
+
+	```javascript
+	const result = 'hello' && '';
+	console.log(result) // Output: ''
+	```
+
+- When both values are truthy, the result is the value of the last expression (`'bar'`).
+
+	```javascript
+	const result = 'foo' && 'bar';
+	console.log(result) // Output: 'bar'
+	```
+
+> 💡 Remember, in JavaScript, falsy values include `''` (empty strings), `0`, `null`, `undefined`, `NaN`, and `false`. Everything else is considered truthy.
+
+2. **The `||` operator**
+
+The `||` operator evaluates expressions from left to right and returns the **first truthy value** it encounters. If all values are falsy, it returns the last value.
+
+Let's take a look at a few examples of the `||` operator at work:
+
+- When the first expression (`''`) is falsy, `result` is assigned `'foo'` as it's the first truthy value.
+
+	```javascript
+	const result = '' || 'foo';
+	console.log(result); // Output: 'foo'
+	```
+
+- If the first value (`2`) is truthy, the evaluation stops, and `result` is assigned the first value (`2`).
+
+	```javascript
+	const result = 2 || 0;
+	console.log(result); // Output: 2
+	```
+
+- When all values being evaluated are falsy (`''` and `0`), `result` is assigned the last value (`0`), as no truthy value is found.
+
+	```javascript
+	const result = '' || 0;
+	console.log(result); // Output: 0
+	```
+
+> 💡 The `||` operator can be helpful for setting fallback or default values.
+
+### Optional chaining
+
+Optional chaining is a way to safely access deeply nested properties in an object. This approach can help us avoid the errors that occur when attempting to access `undefined` or `null` properties.
+
+Consider a scenario where we attempt to access a property that doesn't exist, which normally results in an error:
+
+```javascript
+const adventurer = {
+  name: 'Alice'
+};
+
+console.log(adventurer.dog.name); // TypeError: Cannot read properties of undefined (reading 'name')
+```
+
+In this application, it's conceivable that the `dog` property might be added in later. This is where some optional chaining might prove useful. 
+
+Using `console.log(adventurer.dog?.name);` will allow our code to run without an error:
+
+```javascript
+const adventurer = {
+  name: 'Alice'
+};
+
+console.log(adventurer.dog?.name); // undefined
+```
+
+Now, the non existent property causes an error. Instead our code logs a value of `undefined`.
+
+tktk Lauren - Should the review section and lab exercises go in a separate readme files?
+
+## Lab exercises
+
+### Exercise 1: Applying `Array.prototype.map()`
 
 Use `.map()` to iterate over the following array:
 
-```
-[13, 87, 2, 89, 12, 4, 90, 63]
+```javascript
+const nums = [13, 87, 2, 89, 12, 4, 90, 63];
 ```
 
 Create a new array where each value is multiplied by 2 and log the new array.
 
-### Destructuring
-
-#### Arrays
-
-##### Explanation
-
-Let's say we wanted to do something like this:
-
-```js
-const x = [1, 2, 3, 4, 5];
-const y = x[0]
-const z = x[1]
-console.log(y); // 1
-console.log(z); // 2
-```
-
-We can simplify this a bit:
-
-```js
-const x = [1, 2, 3, 4, 5];
-const [y, z] = x;
-console.log(y); // 1
-console.log(z); // 2
-```
-
-Basically, the `const [y, z] = x` will create a variable `y` and assign it to the first element in `x`. It will also create a variable `z` and assign it to the second element in `x`.  You have full control of the variable names.  These are just examples.
-
-##### Exercise
+### Exercise 2: Destructuring arrays
 
 Given the following array:
 
 ```javascript
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies']
+const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 ```
 
-Use destructuring to pull out the first and second values of the array and place them into variables.  Log both variables.
+Use destructuring to pull out the first and second values of the array and place them into variables. Log both variables.
 
-#### Objects
-
-##### Explanation
-
-We can something similar with objects. Let's say we wanted to do something like this:
-
-```js
-const obj = { a: 1, b: 2 };
-const a = obj.a;
-const b = obj.b;
-console.log(a); // 1
-console.log(b); // 2
-```
-
-We can rewrite this as:
-
-```js
-const obj = { a: 1, b: 2 };
-const { a, b } = obj;
-console.log(a); // 1
-console.log(b); // 2
-```
-
-`const { a, b } = obj` will create a variable `a` and assign it the value of the property in `obj` that has the same name (`a`). It will do the same thing with `b`.
-
-The important thing to note is that the variables being created `const {a, b}` must match properties that exist in the object. `const {foo, bar} = obj` wouldn't work because `obj` doesn't have the properties `foo` and `bar`
-
-##### Exercise
+### Exercise 3: Destructuring objects
 
 Given the following object:
 
-```js
+```javascript
 const car = {
 	make: 'Audi',
 	model: 'q5'
-}
+};
 ```
 
-Use destructuring to create a variable `make` that will hold the value of `car.make`.  Do the same for `model` and `car.model`
+Use destructuring to create a variable `make` that will hold the value of `car.make`. Do the same for `model` and `car.model`.
 
-### Spread Operator
-
-#### Arrays
-
-##### Explanation
-
-Let's duplicate an array:
-
-```js
-const arr = [1,2,3]
-const arr2 = []
-
-arr.forEach((currentElement)=>{
-	arr2.push(currentElement)
-})
-console.log(arr2)
-```
-
-This can be simplified like so:
-
-```js
-const arr = [1,2,3]
-const arr2 = [...arr]
-```
-
-This "spreads" the values of `arr` into `arr2`. The thing to note is that you can't simply do:
-
-```js
-const arr = [1,2,3]
-const arr2 = arr
-```
-
-The reason for this is that in this last scenario, `arr2` is set to a reference to `arr`. This means that it doesn't duplicate the values, it instead points to the same place in memory that `arr` is stored. If you manipulate one, you'll see the same changes on the other:
-
-```js
-const arr = [1,2,3]
-const arr2 = arr
-arr2.push(4)
-console.log(arr);
-```
-
-Because of this, we need to manually duplicate the original array. This is where the spread (`...`) operator comes in.
-
-##### Exercise
+### Exercise 4: Applying the spread operator on arrays
 
 Duplicate the following array using the spread operator, and assign it to the variable `controversialPizzaToppings`:
 
-```js
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies']
+```javascript
+const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 ```
 
-Log the variable `controversialPizzaToppings`
+Log the variable `controversialPizzaToppings`.
 
-#### Objects
-
-##### Explanation
-
-Objects also need to be manually duplicated, just like arrays. The following won't work as expected:
-
-```js
-const obj1 = { foo: 'bar', x: 42 };
-const clonedObj = obj1;
-clonedObj.x = 43;
-console.log(obj1.x); //43
-```
-
-In the previous example, `obj1` is affected when we alter `clonedObj`. We can easily duplicate objects like so:
-
-```js
-const obj1 = { foo: 'bar', x: 42 };
-const clonedObj = {...obj1}
-clonedObj.x = 43;
-console.log(clonedObj.x); //43
-console.log(obj1.x); //42
-```
-
-As you can see, now the objects have different values for their respective `x` properties.
-
-##### Exercise
+### Exercise 5: Applying the spread operator on objects
 
 Duplicate the following object and spread its values into a new variable `myCar`:
 
-```js
+```javascript
 const car = {
 	make: 'Audi',
 	model: 'q5'
-}
-```
-
-Change the `model` property of `myCar` to the string `'q7'`.  Log both objects and see that they have different values for the `model` property, while maintaining the same `make` value.
-
-### Dynamic Keys in Objects
-
-#### Explanation
-
-We can use variables when creating keys for our objects like so:
-
-```js
-const key = 'DYNAMIC_KEY';
-const obj = {
-    [key]: 'ES6!'
 };
-
-console.log(obj); // > { 'DYNAMIC_KEY': 'ES6!' }
 ```
 
-Note that if you didn't put the `[]` around `key` the following would happen:
+Change the `model` property of `myCar` to the string `'q7'`. Log both objects and make sure that they have different values for the `model` property, while maintaining the same `make` value.
 
-```js
-const key = 'DYNAMIC_KEY';
-const obj = {
-    key: 'ES6!'
-};
-
-console.log(obj); // > { key: 'ES6!' }
-```
-
-Before a relatively recent version of JS (called ES6 or ECMAScript 6), we'd have to do the following:
-
-```js
-const key = 'DYNAMIC_KEY';
-const obj = {}
-obj[key] = 'ES6!'
-console.log(obj); // > { 'DYNAMIC_KEY': 'ES6!' }
-```
-
-Objects in JS allow for array style access, so `obj.foo = 'bar'` is the same as `obj['foo'] = 'bar'`. The advantage here is that you can use variables for keys. This is fine too, but I like the first example.
-
-This might not seem terribly useful, but there are some situations in React where it can save you from writing a lot of code!
-
-#### Exercise
+### Exercise 6: Dynamic keys in objects
 
 Define a variable of your choice and assign it a string value.  Next, create an object and use that variable as a key for a property.  The value of the property can be whatever.  Log the object to make sure it worked as expected.
 
-### Import and Export
+### Exercise 7: Import and Export
 
-#### Explanation
+Follow the steps below for some practice with `import` and `export`. Update the values for `default`, `age`, and `job` accordingly:
 
-Exporting and Importing in JavaScript is accomplished with the `import` and `export` syntax.  Create two files: `exportingFile.js` and `importingFile.js`:
+1. Initialize a node project:
 
+```bash
+npm init -y
 ```
+
+2. Add the following property to `package.json`:
+
+```json
+"type":"module",
+```
+
+3. Create two files: `exportingFile.js` and `importingFile.js`:
+
+```bash
 touch exportingFile.js
 touch importingFile.js
 ```
 
-Also, you'll need to initialize a node project:
+4. In `exportingFile.js` add the following:
 
-```
-npm init -y
-```
-
-Now add the following property to `package.json`:
-
-```
-"type":"module",
+```javascript
+export default 'Matt';
 ```
 
-In `exportingFile.js` add the following:
+5. In `importingFile.js` add the following:
 
-```js
-export default 'Matt'
+```javascript
+import name from './exportingFile.js';
+console.log(name);
 ```
 
-In `importingFile.js` add the following:
-
-```js
-import name from './exportingFile.js'
-console.log(name)
-```
-
-Run `importingFile.js` like so:
+6. Run `importingFile.js` like so:
 
 ```bash
 node importingFile.js
 ```
 
-You'll notice the keyword `default` in `exportingFile.js`.  You can export multiple values, but make one of them the default value that is exported.  This is what we did here.  To export additional values, update `exportingFile.js` like so:
+7. To export additional values, update `exportingFile.js` like so:
 
-```js
-export default 'Matt'
-export const age = 43
-export const job = 'programmer'
+```javascript
+export default 'Matt';
+export const age = 43;
+export const job = 'programmer';
 ```
 
-Now you can import those additional exports by updating `importingFile.js` like so:
+These additions can be imported by updating `importingFile.js` like so:
 
-```js
-import name, { age, job } from './exportingFile.js'
-console.log(name, age, job)
+```javascript
+import name, { age, job } from './exportingFile.js';
+console.log(name, age, job);
 ```
 
-When exporting additional variables, simply declare the variable like normal, and prepend the declaration with `export`.
+### Exercise 8: Default parameters
 
-#### Exercise
+Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values:
 
-Run the above example and update values for `default`, `age`, and `job`
+1. `cat`
 
-### Default Parameters
+2. `white`
 
-#### Explanation
+The function should log a sentence `'The cat is white.'` by default. The function should substitute the appropriate parameters when supplied arguments.
 
-Default parameters are just that - default values for parameters when you don’t pass a value for them in a function call. Take this example:  
+### Exercise 9: Terinary operator
 
-```js
-function addThreeNumbers(numA, numB, numC) {
-	return numA + numB + numC
-}
+Convert the following `if...else` statement in to a ternary:
 
-addThreeNumbers(2)
-```
-
-This will return `NaN`, because the value of `numB` and `numC` are both `undefined`.  
-Let’s apply some defaults to the `numB` and `numC` parameters:  
-
-```js
-function addThreeNumbers(numA, numB = 2, numC = 1) {
-	return numA + numB + numC
-}
-
-addThreeNumbers(2)
-```
-
-Now this function will return the number `5`.  
-What if we also give a default to `numA`?  
-
-```js
-function addThreeNumbers(numA = 1, numB = 2, numC = 1) {
-	return numA + numB + numC
-}
-addThreeNumbers(2)
-```
-
-
-This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
-
-#### Exercise
-
-Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values `cat` and `white`.  The function should log a sentence `'The cat is white.'` by default.  The function substitutes the appropriate parameters when supplied arguments.
-
-### Ternary Operator
-
-#### Explanation
-
-Here's some if/else code:
-
-```js
-let age = 22;
-let access;
-
-if(age > 21){
-	access = 'yes'
-} else {
-	access = 'no';
-}
-console.log(access);//yes
-```
-
-We can shorten this up like so:
-
-```js
-let age = 22;
-let access = (age > 21) ? 'yes' :  'no'
-console.log(access); //yes
-```
-
-There's three parts to a ternary:
-
-- The boolean expression is inside the `()`
-- If the boolean expression evaluates to `true` then the variable on the left of the `=` is set to whatever comes after the `?`
-- If the boolean expression evaluates to `false` then the variable on the left of the `=` is set to whatever comes after the `:`
-
-#### Exercise
-
-Shorten the following `if/else` statement using a ternary:
-
-```js
+```javascript
 let pizza = 'tasty';
 
-if(pizza === 'tasty'){
+if (pizza === 'tasty') {
 	console.log('yum')
 } else {
 	console.log('yuck')
 }
 ```
 
-### And/Boolean Gates
+tktk Lauren - I think these last two questions can be removed:
 
-#### Explanation
+### Exercise 10: Boolean gates
 
-When running `&&` and `||` statements, something interesting occurs when not using them within the context of an `if/else` statement
+Prior to running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
 
-##### `&&`
- 
-```js
-const result1 = "" && "foo"; // result is assigned "" (empty string)
-const result2 = 2 && 0; // result is assigned 0
-const result3 = "foo" && 2; // result is assigned 2
-```
-
-To understand what's going on here, we have to remember about falsey values. In the example above, the following values are falsey:
-
-- `""` (empty string)
-- 0
-
-The following values are truthy:
-
-- `"foo"` (non-empty string)
-- 2
-
-The `&&` will return the first falsey value it finds.  If all values are truthy, it will return the last truthy value.
-
-##### `||`
-
-`||` is the opposite:
-
-```js
-const result1 = "" || "foo"; // result is assigned "foo"
-const result2 = 2 || 0; // result is assigned 2
-const result3 = "" || 0; // result is assigned 0
-```
-
-It will return the first truthy value in the chain.  If all values are falsey, it returns the last falsey value.
-
-#### Exercise
-
-Without running the following code, see if you can guess what the values of the variables will me.  Then run the code to see if you're right:
-
-```js
+```javascript
 const result1 = "bar" && "foo";
 const result2 = false || 243;
 const result3 = 42 && false;
 const result3 = myVar || 3000;
-console.log(result1)
-console.log(result2)
-console.log(result3)
-console.log(result4)
+console.log('result1:', result1)
+console.log('result1:', result2)
+console.log('result1:', result3)
+console.log('result1:', result4)
 ```
 
-### Optional Chaining
+### Exercise 11: Optional chaining
 
-#### Explanation
-
-Take the following code:
-
-```js
-const adventurer = {
-  name: 'Alice'
-};
-
-console.log(adventurer.dog.name);
-```
-
-This errors out, causing your entire app to crash.  That seems a bit harsh, especially if it's conceivable if the `dog` property might be added in later.  Using `console.log(adventurer.dog?.name);` will run without error and log `undefined`:
-
-```js
-const adventurer = {
-  name: 'Alice'
-};
-
-console.log(adventurer.dog?.name);
-```
-
-Much nicer!
-
-#### Exercise
-
-On the example above, check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.
+Refer back to the description of optional chaining and check for `cat.age` on `adventurer`.  See how it errors out?  Use optional chaining so that it returns undefined instead.

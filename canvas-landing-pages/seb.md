@@ -1,1 +1,1 @@
-# ![Intro to Express](../assets/hero.png)
+# ![Modern Javascript Syntax Lab](../assets/hero.png)
