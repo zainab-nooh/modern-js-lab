@@ -1,4 +1,4 @@
-# ![Modern Javascript Syntax Lab](./assets/tktk-hero.png)
+# ![Modern Javascript Syntax Lab](./assets/hero.png)
 
 ## About
 
