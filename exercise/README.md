@@ -268,7 +268,9 @@ Using square brackets (`[]`) around `fruitType` in the object declaration tells 
 ### Exercise 6: Dynamic keys in objects
 
 ```js
-// Create an object named userProfile. Define a variable named propertyName and assign a string to it (like a username, age, or email). Use propertyName as a dynamic key in userProfile, assigning a relevant value.
+// Create an object named userProfile. 
+// Define a variable named propertyName and assign a string to it (like a username, age, or email). 
+// Use propertyName as a dynamic key in userProfile, assigning a relevant value.
 
 // Your code here
 ```
