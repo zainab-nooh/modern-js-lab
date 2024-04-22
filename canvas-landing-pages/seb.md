@@ -12,5 +12,5 @@ Estimated time to complete core lab exercise: **60 min**
 
 ## Content
 
-- [Setup](./setup/README.md)
-- [Exercise](./exercise/README.md)
+- [Setup](../setup/README.md)
+- [Exercise](../exercise/README.md)
