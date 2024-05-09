@@ -561,23 +561,40 @@ console.log('result1:', result4);
 
 ### Exercise 10: Boolean gates
 
-```js
-// Simulated language configuration (change this variable to test)
-const localLangConfig = null; // Change to 'es', 'fr', etc., or keep it null
+In modern JavaScript, a common pattern is to assign a default value to variables if no specific value is provided. This technique is especially useful in settings where configurations might be optional. For example, users might not set their language or theme preferences on a website, and you'd want to fall back to some default settings.
 
-// Create a variable called LANG
-// Assign LANG the value of localLangConfig or 'en' as a default
+Now that you've seen how to assign default values using the logical OR operator, let's reinforce this concept with a direct application.
+
+- Let's assume we have a variable called `localLangConfig` that might contain a language code (like 'es' for Spanish, 'fr' for French) or might be `null` if no language is selected
+- Your task is to create a variable `LANG` that should use the value from `localLangConfig` if it's not null. If `localLangConfig` is null, default `LANG` to 'en' (English).
+
+```js
+// 1. SET LANGUAGE
+
+// Construct a single line of code that assigns a default value using the logical OR operator. This line should match the logic of the following statement: 
+
+// "LANG is equal to localLangConfig or the default value of English."
+
+const localLangConfig = null;  // Change to 'es', 'fr', etc., or keep it null
+
+// a. Create a variable called LANG
+// b. Assign LANG the value of localLangConfig or 'en' as a default
 
 // Your code here
 
 // Log the result
 console.log('Language setting:', LANG);
+```
 
-// Simulated user theme preference (change this variable to test)
+Now, let's try this same pattern for setting a users website theme. 
+
+```js
+// 2. SET WEBSITE THEME
+
 const userSavedTheme = null; // Change to 'dark', 'contrast', etc., or keep it null
 
-// Create a variable called USER_THEME
-// Assign USER_THEME the value of userSavedTheme or 'light' as a default
+// a. Create a variable called USER_THEME
+// b. Assign USER_THEME the value of userSavedTheme or 'light' as a default
 
 // Your code here
 
