@@ -613,7 +613,7 @@ let dog = adventurer.dog?.name;
 console.log(dog); // undefined
 ```
 
-Now, the non existent property causes an error. Instead our code logs a value of `undefined`.
+Now, instead of the non existent property causing an error, our code logs a value of `undefined`.
 
 ### Exercise 11: Optional chaining
 
