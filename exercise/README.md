@@ -551,12 +551,12 @@ Can you guess what the values of the variables will be:
 const result1 = 'bar' && 'foo';
 const result2 = false || 243;
 const result3 = 42 && false;
-const result3 = myVar || 3000;
+const result4 = myVar || 3000;
 
 console.log('result1:', result1);
-console.log('result1:', result2);
-console.log('result1:', result3);
-console.log('result1:', result4);
+console.log('result2:', result2);
+console.log('result3:', result3);
+console.log('result4:', result4);
 ```
 
 ### Exercise 10: Boolean gates
