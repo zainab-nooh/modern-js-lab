@@ -6,9 +6,6 @@ Over the last decade, JavaScript has seen significant changes in its syntax to m
 
 This lab is your opportunity to dive into modern JavaScript syntax. Understanding this contemporary style is beneficial, but a solid grasp of traditional JavaScript is essential. It lays a strong foundation not only for JavaScript but also for learning other programming languages.
 
-## Time to complete
-
-Estimated time to complete core lab exercise: **60 min**
 
 ## Content
 
