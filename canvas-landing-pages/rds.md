@@ -1,4 +1,7 @@
-# ![Modern Javascript Syntax Lab](../assets/hero.png)
+<h1>
+  <span class="prefix"></span>
+  <span class="headline">Modern JavaScript Syntax Lab</span>
+</h1>
 
 ## About
 
