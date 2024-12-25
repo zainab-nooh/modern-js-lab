@@ -207,10 +207,10 @@ console.log(fruitsAndVegetables);
 ```javascript
 // Exercise 4: 
 // Duplicate the following array using the spread operator and assign it to 
-// `controversialPizzaToppings`.
+// `uncontroversialPizzaToppings`.
 // Then, log the variable.
 
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
+const morePizzaToppings = ['Cheese', 'Sauce'];
 
 // Your code here:
 
@@ -731,6 +731,7 @@ Instead of the non-existent property causing an error, our code now logs `undefi
 ### Exercise 11: Optional chaining
 
 ```javascript
+// Exercise 11:
 // Use optional chaining in a console.log so that a console log of
 // `adventurer.cat.age` returns `undefined` instead of an error.
 
