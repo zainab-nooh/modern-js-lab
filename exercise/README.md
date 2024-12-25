@@ -47,12 +47,18 @@ The `map()` method will call upon the provided function for every element in `fl
 ### Exercise 1: Applying `map()`
 
 ```javascript
-// Exercise 1:
-// Use the `map()` method to iterate over the following array:
+// ! Exercise 1:
+// a. Use the `map()` method to iterate over the provided `nums` array
+//
+// b. Use the callback function of the `map()` method you wrote to
+//    create a new array where each value is multiplied by 2.
+//    Name the new array `numsTimesTwo`.
+//
+// c. Console log the new array.
+//
+// Starting code (don't modify this):
 
 const nums = [13, 87, 2, 89, 12, 4, 90, 63];
-
-// Create a new array where each value is multiplied by 2 and log the new array.
 
 // Your code here:
 
@@ -88,9 +94,15 @@ In the example above, the first two elements of `petsArray` are unpacked into `f
 ### Exercise 2: Array destructuring
 
 ```javascript
-// Exercise 2:
-// Given the following array, use destructuring to pull out the first and second
-// values and place them into variables. Log both variables.
+// ! Exercise 2:
+// a. Given the provided `pizzaToppings` array, use destructuring to extract 
+//    the first and second values and place them into variables. Name the 
+//    variable that corresponds to the first value `firstIngredient`. Name the 
+//    variable that corresponds to the second value `secondIngredient`.
+//
+// b. Console log the `firstIngredient` and `secondIngredient` variables.
+//
+// Starting code (don't modify this):
 
 const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 
@@ -130,9 +142,13 @@ In the example above, the `person` object is deconstructed to extract the `name`
 ### Exercise 3: Destructuring objects
 
 ```javascript
-// Exercise 3:
-// Given the following object, use destructuring to create variables `make` and 
-// `model` that will hold the respective values.
+// ! Exercise 3:
+// a. Given the provided `car` object, use destructuring to create two
+//    variables: `make` and `model` that will hold the respective values.
+//
+// b. Console log the `make` and `model` variables.
+//
+// Starting code (don't modify this):
 
 const car = {
   make: 'Audi',
@@ -205,10 +221,13 @@ console.log(fruitsAndVegetables);
 ### Exercise 4: Applying the spread operator on arrays
 
 ```javascript
-// Exercise 4: 
-// Duplicate the following array using the spread operator and assign it to 
-// `uncontroversialPizzaToppings`.
-// Then, log the variable.
+// ! Exercise 4: 
+// a. Duplicate the provided `morePizzaToppings` array using the spread 
+//    operator and assign it to a variable named `uncontroversialPizzaToppings`.
+// 
+// b. Console log the `uncontroversialPizzaToppings` variable.
+//
+// Starting code (don't modify this):
 
 const morePizzaToppings = ['Cheese', 'Sauce'];
 
@@ -278,16 +297,21 @@ With the spread operator, `clonedObject` is a brand new object with a separate c
 ### Exercise 5: Applying the spread operator on objects
 
 ```javascript
-// Exercise 5:
-// Duplicate the following object and spread its values into a new variable.
-// The new variable should be named `myCar`.
+// ! Exercise 5:
+// a. Duplicate the provided `anotherCar` object and spread its values into a 
+//    new variable named `myCar`.
+//
+// b. Change the `make` and `model` properties of the `myCar` object to new 
+//    values.
+//
+// c. Console log both objects and observe the results.
+//
+// Starting code (don't modify this):
 
-const car = {
-  make: 'Audi',
-  model: 'Q5',
+const anotherCar = {
+  make: 'Toyota',
+  model: 'RAV4',
 };
-
-// Change the `model` property of `myCar` to 'q7'. Log both objects.
 
 // Your code here:
 
@@ -334,13 +358,17 @@ Using square brackets (`[]`) around `fruitType` in the object declaration tells 
 ### Exercise 6: Dynamic keys in objects
 
 ```javascript
-// Exercise 6:
-// Create an object named `userProfile`. 
-// Define a variable named `propertyName` and assign a string (like 'username',
-// 'age', or 'email') to it.
-// Use `propertyName` as a dynamic key in `userProfile`.
-// Assign it a relevant value.
-
+// ! Exercise 6:
+// a. Define a variable named `propertyName` and assign a string (like 
+//    'username', 'age', or 'email') to it.
+// 
+// b. Create an object named `userProfile`. 
+// 
+// c. Use `propertyName` as a dynamic key in `userProfile`. Assign it a 
+//    relevant value.
+//
+// d. Console log the `userProfile` object to see the result.
+//
 // Your code here:
 
 ```
@@ -500,15 +528,16 @@ This function is still going to return the number `4`. The default value of `1
 ### Exercise 8: Default parameters
 
 ```javascript
-// Exercise 8:
-// Create a function with two parameters, `noun` and `adjective`.
-// Give `noun` a default value of "cat". 
-// Give `adjective` a default value of "orange".
-
-// The function should log a sentence 'The cat is orange.' by default.
-// The function should substitute the appropriate parameters when
-// it is supplied with arguments.
-
+// ! Exercise 8:
+// a. Create a function with two parameters, `noun` and `adjective`.
+// 
+// b. Give `noun` a default value of "cat" and `adjective` a default value of 
+//    "orange".
+//
+// c. The function should log a sentence 'The cat is orange.' by default, but 
+//    should substitute the appropriate parameters when it is supplied with 
+//    arguments.
+//
 // Your code here:
 
 ```
@@ -552,16 +581,18 @@ console.log(access); // 'Yes'
 ### Exercise 9: Ternary operator
 
 ```javascript
-// Exercise 9:
-// Convert the following `if...else` statement into a ternary:
+// ! Exercise 9:
+// a. Convert the following `if...else` statement into a ternary:
+//
+//    if (pizza === 'tasty') {
+//      console.log('yum');
+//    } else {
+//      console.log('yuck');
+//    }
+//
+// Starting code (don't modify this):
 
-// let pizza = 'tasty';
-
-// if (pizza === 'tasty') {
-//   console.log('yum');
-// } else {
-//   console.log('yuck');
-// }
+const pizza = 'tasty';
 
 // Your code here:
 
@@ -569,7 +600,7 @@ console.log(access); // 'Yes'
 
 ## Review: Boolean gates
 
-Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when used outside of `if...else` statements. In this context, they can be used to evaluate and return values directly based on the truthiness or falsiness of the values involved.
+Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when used outside of `if...else` statements. In this context, they can be used to evaluate and return values directly based on the truthiness or falsyness of the values involved.
 
 1. **The `&&` operator**
 
@@ -661,40 +692,49 @@ Now that you've seen how to assign default values using the logical OR operator 
 - Your task is to create a variable `lang` that should use the value from `localLangConfig` if it's not null. If `localLangConfig` is null, set `lang` to a default value, `'en'` (representing English).
 
 ```javascript
-// Exercise 10:
-// 10.1: Set language
+// ! Exercise 10:
+// ! 10.1: Set language
+// a. Construct a single line of code that assigns a default value using the 
+//    logical OR operator. This line should match the logic of the following 
+//    statement:
+//
+//    "lang is equal to localLangConfig or the default value of English."
+//
+// b. Create a variable called `lang`.
+//
+// c. Assign `lang` the value of localLangConfig or 'en' as a default if 
+//    `localLangConfig is falsy.
+//
+// d. Log the value of `lang` to the console.
+//
+// Your code here (localLangConfig is provided to get you started):
 
-// Construct a single line of code that assigns a default value using the 
-// logical OR operator.
-// This line should match the logic of the following statement: 
+// Simulated language configuration (change this variable to test)
+const localLangConfig = null; // Change to 'es', 'fr', etc., or leave it `null`.
 
-// "lang is equal to localLangConfig or the default value of English."
-
-const localLangConfig = null;  // Change to 'es', 'fr', etc., or keep it null
-
-// a. Create a variable called `lang`.
-// b. Assign `lang` the value of localLangConfig or 'en' as a default.
-
-// Your code here:
-
-// Log the result
-console.log('Language setting:', lang);
 ```
 
 Now, let's try this same pattern to set a user's preferred theme on a website:
 
 ```javascript
-// 10.2: Set website theme
+// ! 10.2: Set website theme
+// Intro: In this exercise, you'll construct a single line of code that assigns 
+//        a default value to a variable named `theme` using the logical OR 
+//        operator. This line should match the logic of the following statement:
+//
+//        "theme is equal to savedUserTheme or the default value of light."
+//
+// a. Create a variable called `theme`.
+//
+// b. Assign `theme` the value of `savedUserTheme` or 'light' as a default.
+//
+// c. Log the value of `theme` to the console.
+//
+// Your code here (`savedUserTheme` is provided to get you started):
 
-const userSavedTheme = null; // Change to 'dark', 'contrast', etc., or keep it null
+// Simulated user theme preference (change this variable to test)
+const savedUserTheme = null; // Change to 'dark', etc., or leave it `null`.
 
-// a. Create a variable called userTheme.
-// b. Assign userTheme the value of userSavedTheme or 'light' as a default.
-
-// Your code here:
-
-// Log the result
-console.log('User theme setting:', userTheme);
 ```
 
 ### Review: Optional chaining
@@ -731,15 +771,16 @@ Instead of the non-existent property causing an error, our code now logs `undefi
 ### Exercise 11: Optional chaining
 
 ```javascript
-// Exercise 11:
-// Use optional chaining in a console.log so that a console log of
-// `adventurer.cat.age` returns `undefined` instead of an error.
+// ! Exercise 11:
+// a. Use optional chaining in a console.log so that a console log of
+//    `adventurer.cat.age` returns `undefined` instead of an error.
+//
+// Starting code (don't modify this):
 
 const adventurer = {
   name: 'Alice',
 };
 
 // Your code here:
-
 
 ```
