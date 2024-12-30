@@ -1,49 +1,67 @@
-# ![Modern Javascript Syntax Lab - Exercise](./assets/hero.png)
+<h1>
+  <span class="headline">Modern JavaScript Syntax Lab</span>
+  <span class="subhead">Exercise</span>
+</h1>
 
 ## Introduction
 
-Over the last decade, JavaScript has seen significant changes in its syntax to make it more user-friendly, responding to developers' needs. These updates have become standard in popular frameworks like React, Vue, and Angular. It’s key to understand that these changes primarily enhance coding efficiency rather than add new functionality to the language.
+Over the last decade, JavaScript has seen significant changes in its syntax to make it more user-friendly, responding to developers' needs. These updates have become standard in popular frameworks like React, Vue, and Angular.
 
-## Learning goals:
+These changes primarily enhance coding efficiency rather than add new functionality to the language.
 
-This lab is your opportunity to dive into modern JavaScript syntax. Understanding this contemporary style is beneficial, but a solid grasp of traditional JavaScript is essential. It lays a strong foundation not only for JavaScript but also for learning other programming languages. Remember, not all languages offer such syntax shortcuts. As a developer, you will encounter languages with unique characteristics, but they often share foundational concepts with JavaScript. Mastering modern JavaScript syntax without relying on it as a crutch is crucial. This approach ensures you’re well-prepared to adapt to different programming languages without starting from scratch.
+## Learning goals
+
+This lab is your opportunity to dive into modern JavaScript syntax. Understanding this contemporary style is beneficial, but a solid grasp of traditional JavaScript is essential. It lays a strong foundation not only for JavaScript but also for learning other programming languages. Remember, not all languages offer such syntax shortcuts.
+
+As a developer, you will encounter languages with unique characteristics, but many, including JavaScript, share foundational concepts. Mastering modern JavaScript syntax without relying on it as a crutch is crucial. This approach ensures you're well-prepared to adapt to different programming languages without starting from scratch.
 
 ## Lab structure
 
-Each **Review section** will provide a brief explanation of a modern JS concept followed by an **exercise** to complete.
+Each **Review section** will briefly explain of a modern JavaScript concept, followed by an **exercise** to complete.
 
-## Review: `Array.prototype.map()`
+## Review: The `map()` iterator method of arrays
 
-The `Array.prototype.map()` method returns a new array with the results of calling a function on every element in an existing array. This allows for the transformation of each element inside the array, without altering the original.
+An array's [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) returns a new array with the results of calling a function on every element in an existing array.
+
+Put another way, `map()` creates a new array where each element in the original array has been *transformed* by the action specified in the `map()` method's callback function without altering the original array.
 
 Take a look at the example below:
 
 ```javascript
-const array1 = ['vanilla', 'chocolate', 'strawberry'];
+const flavors = ['vanilla', 'chocolate', 'strawberry'];
 
-const array2 = array1.map((currentElement) => {
-  return currentElement + ' ice cream';
+const iceCreamFlavors = flavors.map((flavor) => {
+  return `${flavor} ice cream`;
 });
 
-console.log(array2); // ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
+console.log(iceCreamFlavors); 
+// Prints: ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
 ```
 
-In this example, we've used the `Array.prototype.map()` method on `array1` to generate `array2`. Each element in `array2` is the result of appending `' ice cream'` to the end of a string element in `array1`.
+In this example, we've used the `map()` method is used to iterate over `flavors` to generate `iceCreamFlavors`. Each element in `iceCreamFlavors` is the result of appending `' ice cream'` to the end of a string element in `flavors`.
 
-The `Array.prototype.map()` method is used to iterate over `array1`. For every element in `array1`, it will call upon the provided function. When the function is called upon, it receives the current element being processed as an argument. The value returned from the function will take the place of the original element in the new array.
+The `map()` method will call upon the provided function for every element in `flavors`. When called upon, the function receives the current element being processed as an argument. The value returned from the function is added to the new array.
 
-> 💡 `Array.prototype.map()` returns a **new array** with altered values. It does _not_ alter the original array.
+> 💡 `map()` returns a **new array** with altered values. It does *not* change the original array.
 
-### Exercise 1: Applying `Array.prototype.map()`
+### Exercise 1: Applying `map()`
 
-```js
-// Use `.map()` to iterate over the following array:
+```javascript
+// ! Exercise 1:
+// a. Use the `map()` method to iterate over the provided `nums` array
+//
+// b. Use the callback function of the `map()` method you wrote to
+//    create a new array where each value is multiplied by 2.
+//    Name the new array `numsTimesTwo`.
+//
+// c. Console log the new array.
+//
+// Starting code (don't modify this):
 
 const nums = [13, 87, 2, 89, 12, 4, 90, 63];
 
-// Create a new array where each value is multiplied by 2 and log the new array.
+// Your code here:
 
-// Your code here
 ```
 
 ## Review: Array destructuring
@@ -57,31 +75,44 @@ const petsArray = ['Rover', 'Snuffles', 'Toto', 'Spot'];
 
 const [firstPet, secondPet] = petsArray;
 
-console.log(firstPet); // 'Rover'
-console.log(secondPet); // 'Snuffles'
+console.log(firstPet);
+// Prints: 'Rover'
+console.log(secondPet);
+// Prints: 'Snuffles'
 
 // Equivalent in traditional bracket notation:
-console.log(petsArray[0]); // 'Rover'
-console.log(petsArray[1]); // 'Snuffles'
+console.log(petsArray[0]);
+// Prints: 'Rover'
+console.log(petsArray[1]);
+// Prints: 'Snuffles'
 ```
 
 In the example above, the first two elements of `petsArray` are unpacked into `firstPet` and `secondPet`.
 
-> 💡 You have full control of the variable names!
+> 💡 You have complete control of the variable names!
 
 ### Exercise 2: Array destructuring
 
-```js
-// Given the following array, use destructuring to pull out the first and second values and place them into variables. Log both variables.
+```javascript
+// ! Exercise 2:
+// a. Given the provided `pizzaToppings` array, use destructuring to extract 
+//    the first and second values and place them into variables. Name the 
+//    variable that corresponds to the first value `firstIngredient`. Name the 
+//    variable that corresponds to the second value `secondIngredient`.
+//
+// b. Console log the `firstIngredient` and `secondIngredient` variables.
+//
+// Starting code (don't modify this):
 
 const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 
-// Your code here
+// Your code here:
+
 ```
 
 ## Review: Object destructuring
 
-Destructuring can also be applied to objects. With object destructuring, we can extract properties from an object. Instead of accessing properties through dot notation or bracket notation, the values of specific properties in an object can be assigned to variables.
+Destructuring can also be applied to objects. With object destructuring, we can extract properties from an object. Instead of accessing properties through dot or bracket notation, the values of specific properties in an object can be assigned to variables.
 
 ```javascript
 const person = {
@@ -92,57 +123,88 @@ const person = {
 // Object destructuring:
 const { name, role } = person;
 
-console.log(name); // 'Alex'
-console.log(role); // 'Software Engineer'
+console.log(name);
+// Prints: 'Alex'
+console.log(role);
+// Prints: 'Software Engineer'
 
 // Equivalent in traditional dot notation:
-console.log(person.name); // 'Alex'
-console.log(person.role); // 'Software Engineer'
+console.log(person.name); 
+// Prints: 'Alex'
+console.log(person.role); 
+// Prints: 'Software Engineer'
 ```
 
-In the example above, the `person` object is deconstructed to extract the `name` and `role` properties. This approach allows us to access the values of `name` and `role` without having to use dot notation for each property.
+In the example above, the `person` object is deconstructed to extract the `name` and `role` properties. This approach allows us to access the values of `name` and `role` without using dot notation for each property.
 
-> 🚨 Unlike array destructuring, where elements are matched based on their position, the variables created in object destructuring, such as `const { name, role }`, need to match the names of existing properties in the object.
+> 🚨 Unlike array destructuring, where elements are matched based on their position, the variables created in object destructuring, such as `const { name, role }`, must match the names of existing properties in the object.
 
 ### Exercise 3: Destructuring objects
 
-```js
-// Given the following object, use destructuring to create variables `make` and `model` that will hold the respective values.
+```javascript
+// ! Exercise 3:
+// a. Given the provided `car` object, use destructuring to create two
+//    variables: `make` and `model` that will hold the respective values.
+//
+// b. Console log the `make` and `model` variables.
+//
+// Starting code (don't modify this):
 
 const car = {
   make: 'Audi',
-  model: 'q5',
+  model: 'Q5',
 };
 
-// Your code here
+// Your code here:
+
 ```
 
 ## Review: Applying the spread operator on arrays
 
-The spread operator (`...`) gives us a way to duplicate or combine arrays. Instead of manually copying elements from one array to another using loops, the spread operator allows us to directly copy the elements of one array into another.
+The spread operator (`...`) allows us to duplicate or combine arrays. Instead of manually copying elements from one array to another using loops, the spread operator allows us to copy the elements of one array into another directly.
 
 ```javascript
 const originalArray = [1, 2, 3];
 const duplicateArray = [...originalArray];
 
-console.log(duplicateArray); // [1, 2, 3]
+console.log(duplicateArray); 
+// Prints: [1, 2, 3]
 ```
 
 In the example above, `duplicateArray` is an entirely separate array produced by copying the contents of `originalArray`.
 
-This differs from simply assigning one array to another, which only creates a reference, not a copy:
+This means that if the `duplicateArray` is modified, those changes won't be reflected in the `originalArray`:
+
+```javascript
+duplicateArray.push(4); 
+// Using spread created a *copy* of the `originalArray`
+// Changing it doesn't also change `originalArray`
+
+console.log(duplicateArray); 
+// Prints: [1, 2, 3, 4]
+console.log(originalArray); 
+// Prints: [1, 2, 3]
+```
+
+This differs from simply assigning one array to another, which only creates a *reference*, not a *copy*:
 
 ```javascript
 const originalArray = [1, 2, 3];
-const referenceArray = originalArray; // referenceArray is now a reference to originalArray
+const referenceArray = originalArray; 
+// referenceArray a reference to originalArray (not a copy)
 
-referenceArray.push(4); // Modifying referenceArray also modifies originalArray
-console.log(originalArray); // [1, 2, 3, 4]
+referenceArray.push(4); 
+// This means modifying `referenceArray` also modifies `originalArray`
+
+console.log(referenceArray); 
+// Prints: [1, 2, 3, 4]
+console.log(originalArray);
+// Prints: [1, 2, 3, 4]
 ```
 
 The spread operator prevents this issue by ensuring the new array is an independent copy that shares no references with the original. This can be useful when we need to maintain the immutability of the original array.
 
-The spread operator can also merge multiple arrays into one:
+The spread operator can also merge multiple arrays into one array:
 
 ```javascript
 const fruits = ['apple', 'orange', 'banana'];
@@ -150,24 +212,32 @@ const vegetables = ['broccoli', 'carrot', 'spinach'];
 
 const fruitsAndVegetables = [...fruits, ...vegetables];
 
-console.log(fruitsAndVegetables); // ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
+console.log(fruitsAndVegetables); 
+// Prints: ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
 ```
 
 > 🚨 When merging multiple arrays, be sure to include the spread operator. Not doing so can result in unintentional nesting.
 
 ### Exercise 4: Applying the spread operator on arrays
 
-```js
-// Duplicate the following array using the spread operator and assign it to `controversialPizzaToppings`. Then, log the variable.
+```javascript
+// ! Exercise 4: 
+// a. Duplicate the provided `morePizzaToppings` array using the spread 
+//    operator and assign it to a variable named `uncontroversialPizzaToppings`.
+// 
+// b. Console log the `uncontroversialPizzaToppings` variable.
+//
+// Starting code (don't modify this):
 
-const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
+const morePizzaToppings = ['Cheese', 'Sauce'];
 
-// Your code here
+// Your code here:
+
 ```
 
 ## Review: Applying the spread operator on objects
 
-The spread operator can also be applied to objects:
+The spread operator can also be used to copy objects:
 
 ```javascript
 const originalObject = {
@@ -176,7 +246,8 @@ const originalObject = {
 };
 
 const clonedObject = { ...originalObject };
-console.log('Clone: ', clonedObject); // { foo: 'Hello', bar: 100 }
+console.log('Clone: ', clonedObject); 
+// Prints: { foo: 'Hello', bar: 100 }
 ```
 
 In the example above, we can see how the properties of `originalObject` have been copied over into a new object called `clonedObject`.
@@ -192,12 +263,15 @@ const originalObject = {
 const clonedObject = originalObject;
 clonedObject.foo = 'Goodbye';
 
-console.log(originalObject); // { foo: 'Goodbye', bar: 100 }
+console.log(originalObject); 
+// Prints: { foo: 'Goodbye', bar: 100 }
 ```
 
-The example above demonstrates a pitfall of attempting to clone an object **without the spread operator**. When `clonedObject` is assigned `originalObject` directly, it doesn't actually create a new, independent object. Instead, `clonedObject` becomes a reference to `originalObject`. This means any changes made to `clonedObject` also affect `originalObject`, as they both point to the same data.
+The example above demonstrates a pitfall of attempting to clone an object **without the spread operator**. When `clonedObject` is assigned `originalObject` directly, it doesn't create a new, independent object. This behavior is identical to not using the spread operator to duplicate an array.
 
-Like with Arrays, this issue can be remedied when we apply the spread operator:
+Instead, `clonedObject` becomes a reference to `originalObject`. This means any changes made to `clonedObject` also affect `originalObject`, as they both point to the same data.
+
+Like with arrays, this issue can be remedied when we apply the spread operator:
 
 ```javascript
 const originalObject = {
@@ -205,39 +279,51 @@ const originalObject = {
   bar: 100,
 };
 
-// Copy the properties of originalObject:
+// Copy the properties of `originalObject`:
 const clonedObject = { ...originalObject };
 
-// Update the properties of clonedObject:
+// Update the properties of `clonedObject`:
 clonedObject.foo = 'Goodbye';
 clonedObject.bar = 0;
 
-console.log('Original: ', originalObject); // { foo: 'Hello', bar: 100 }
-console.log('Clone: ', clonedObject); // { foo: 'Goodbye', bar: 0 }
+console.log('Original: ', originalObject);
+// Prints: { foo: 'Hello', bar: 100 }
+console.log('Clone: ', clonedObject);
+// Prints: { foo: 'Goodbye', bar: 0 }
 ```
 
-With the spread operator, `clonedObject` is a brand new object, with its own separate copy of the data from `originalObject`. Now, modifying `clonedObject` will not impact the `originalObject`
+With the spread operator, `clonedObject` is a brand new object with a separate copy of the data from `originalObject`. Now, modifying `clonedObject` will not impact the `originalObject`
 
 ### Exercise 5: Applying the spread operator on objects
 
-```js
-// Duplicate the following object and spread its values into a new variable `myCar`.
+```javascript
+// ! Exercise 5:
+// a. Duplicate the provided `anotherCar` object and spread its values into a 
+//    new variable named `myCar`.
+//
+// b. Change the `make` and `model` properties of the `myCar` object to new 
+//    values.
+//
+// c. Console log both objects and observe the results.
+//
+// Starting code (don't modify this):
 
-const car = {
-  make: 'Audi',
-  model: 'q5',
+const anotherCar = {
+  make: 'Toyota',
+  model: 'RAV4',
 };
 
-// Change the `model` property of `myCar` to 'q7'. Log both objects.
+// Your code here:
 
-// Your code here
 ```
 
 ## Review: Dynamic keys in objects
 
-Through bracket notation, variables and expressions can be used as dynamic keys in an object. Dynamic keys can be used to create, access, and modify properties in an object. Dynamic keys enhance our ability to access data. This approach is particularly useful in scenarios where key names are not known ahead of time or when they need to be computed on the fly. It also allows for more concise and readable code, avoiding the need for additional steps when assigning properties to objects.
+Variables and expressions can be used as dynamic keys in an object by using bracket notation. Dynamic keys can be used to create, access, and modify properties in an object. Dynamic keys enhance our ability to access data.
 
-Take for example, the use of `selectedFruit` as a dynamic key in the codeblock below:
+This approach is handy in scenarios where key names are not known ahead of time or when they need to be computed on the fly. It also allows for more concise and readable code, avoiding the need for additional steps when assigning properties to objects.
+
+Check out how `selectedFruit` is used as a dynamic key in this code:
 
 ```javascript
 const fruitInventory = {
@@ -245,39 +331,51 @@ const fruitInventory = {
   oranges: 4,
 };
 
-const selectedFruit = 'apples'; // Variable as a dynamic key
+const selectedFruit = 'apples';
+// Using the `selectedFruit` variable as a dynamic key:
 const selectedFruitCount = fruitInventory[selectedFruit];
 
-console.log(selectedFruitCount); // 2
+console.log(selectedFruitCount);
+// Prints: 2
 ```
 
 This technique can be extended to the creation of objects, where property names are determined dynamically:
 
 ```javascript
-const fruitType = 'bananas'; // Variable as a dynamic key
+const fruitType = 'bananas';
 
+// Using the `fruitType` variable as a dynamic key:
 const fruitInventory = {
   [fruitType]: 5,
 };
 
-console.log(fruitInventory); // { bananas: 5 }
+console.log(fruitInventory); 
+// Prints: { bananas: 5 }
 ```
 
-Using square brackets (`[]`) around `fruitType` in the object declaration tells JavaScript to use the variable's value as the property name. Without the brackets, the string `'fruitType'` would be used as the key, rather than its value (`'bananas'`).
+Using square brackets (`[]`) around `fruitType` in the object declaration tells JavaScript to use the variable's value as the property name. Without the brackets, the string `'fruitType'` would be used as the key rather than its value (`'bananas'`).
 
 ### Exercise 6: Dynamic keys in objects
 
-```js
-// Create an object named userProfile. 
-// Define a variable named propertyName and assign a string to it (like a username, age, or email). 
-// Use propertyName as a dynamic key in userProfile, assigning a relevant value.
+```javascript
+// ! Exercise 6:
+// a. Define a variable named `propertyName` and assign a string (like 
+//    'username', 'age', or 'email') to it.
+// 
+// b. Create an object named `userProfile`. 
+// 
+// c. Use `propertyName` as a dynamic key in `userProfile`. Assign it a 
+//    relevant value.
+//
+// d. Console log the `userProfile` object to see the result.
+//
+// Your code here:
 
-// Your code here
 ```
 
 ## Review: `import` and `export`
 
-In JavaScript, the `import` and `export` syntax allows us to share code between different files. This is a more modern approach compared to the `require` and `module.exports` syntax used in CommonJS.
+The `import` and `export` syntax allows us to share code between different files in JavaScript. This is a more modern and native approach compared to the `require` and `module.exports` syntax used in CommonJS.
 
 With `export`, you can make functions, objects, or primitives available for use in other files.
 
@@ -285,34 +383,34 @@ There are two main types of exports:
 
 1. **Named exports**: For exporting multiple items from a file:
 
-```javascript
-export const myNumber = 123;
-export const myString = 'Hello';
-```
+   ```javascript
+   export const myNumber = 123;
+   export const myString = 'Hello';
+   ```
 
 2. **Default exports**: For exporting a single item from a file:
 
-```javascript
-export default function superCoolFunction() {
-  /* ... */
-}
-```
+   ```javascript
+   export default function superCoolFunction() {
+     /* ... */
+   }
+   ```
 
-> 🏆 It's possible to mix default and named exports in a single module, but it's a best practice to stick to one style for consistency and clarity.
+> 🏆 It's possible to mix default and named exports in a single module, but it's a best practice to stick to one style for consistency and clarity. Named exports are often preferred over default exports.
 
 Using `import`, you can bring those exported items into another file.
 
 1. **Importing named exports**:
 
-```javascript
-import { myNumber, myString } from './myData.js';
-```
+   ```javascript
+   import { myNumber, myString } from './myData.js';
+   ```
 
 2. **Importing a default export**:
 
-```javascript
-import superCoolFunction from './superCoolFunction.js';
-```
+   ```javascript
+   import superCoolFunction from './superCoolFunction.js';
+   ```
 
 You can also import all named exports as a single object, which is useful when dealing with modules that export several items:
 
@@ -330,56 +428,64 @@ Follow the steps below for some practice with `import` and `export`. Update the 
 
 1. Initialize a node project:
 
-```bash
-npm init -y
-```
+   ```bash
+   npm init -y
+   ```
 
-2. Add the following property to `package.json`:
+2. Add the following property as a new line in the `package.json` file:
 
-```json
-"type":"module",
-```
+   ```json
+   "type": "module",
+   ```
 
 3. Create two files: `exportingFile.js` and `importingFile.js`:
 
-```bash
-touch exportingFile.js
-touch importingFile.js
-```
+   ```bash
+   touch exportingFile.js
+   touch importingFile.js
+   ```
 
-4. In `exportingFile.js` add the following:
+4. In `exportingFile.js`, add the following:
 
-```javascript
-export default 'Matt';
-```
+   ```javascript
+   export default 'Matt';
+   ```
 
-5. In `importingFile.js` add the following:
+5. In `importingFile.js`, add the following:
 
-```javascript
-import name from './exportingFile.js';
-console.log(name);
-```
+   ```javascript
+   import name from './exportingFile.js';
+
+   console.log(name);
+   // Prints: Matt
+   ```
 
 6. Run `importingFile.js` like so:
 
-```bash
-node importingFile.js
-```
+   ```bash
+   node importingFile.js
+   ```
 
 7. To export additional values, update `exportingFile.js` like so:
 
-```javascript
-export default 'Matt';
-export const age = 43;
-export const job = 'programmer';
-```
+   ```javascript
+   export default 'Matt';
+   export const computer = 'MacBook Pro'
 
-These additions can be imported by updating `importingFile.js` like so:
+   const age = 43;
+   const job = 'programmer';
 
-```javascript
-import name, { age, job } from './exportingFile.js';
-console.log(name, age, job);
-```
+   export {age, job}
+   ```
+
+   These additions can be imported by updating `importingFile.js` like so:
+
+   ```javascript
+   import name, { computer, age, job } from './exportingFile.js';
+
+   console.log(name, computer, age, job);
+   // Prints: 'Matt', 'MacBook Pro', 43, 'programmer'
+   ```
 
 ## Review: Default parameters
 
@@ -388,52 +494,57 @@ Default parameters are just that - default values for parameters. These defaults
 Take this example:
 
 ```javascript
-function addThreeNumbers(numA, numB, numC) {
-  return numA + numB + numC;
+function addTwoNumbers(numA, numB) {
+  return numA + numB;
 }
 
-addThreeNumbers(2);
+addTwoNumbers(2);
 ```
 
-This will return `NaN`, because the value of `numB` and `numC` are both `undefined`. Let’s apply some defaults to the `numB` and `numC` parameters:
+This will return `NaN` because the value of `numB` is `undefined`.
 
-```js
-function addThreeNumbers(numA, numB = 2, numC = 1) {
-  return numA + numB + numC;
+Let's apply some defaults to the `numB` parameter:
+
+```javascript
+function addTwoNumbers(numA, numB = 2) {
+  return numA + numB;
 }
 
-addThreeNumbers(2);
+addTwoNumbers(2);
 ```
 
-Now this function will return the number `5`. What if we also give a default to `numA`?
+Now, this function will return the number `4`. What if we also give a default to `numA`?
 
-```js
-function addThreeNumbers(numA = 1, numB = 2, numC = 1) {
-  return numA + numB + numC;
+```javascript
+function addTwoNumbers(numA = 1, numB = 2) {
+  return numA + numB;
 }
 
-addThreeNumbers(2);
+addTwoNumbers(2);
 ```
 
-This function is still going to return the number `5`. The default value of `1` on `numA` will be overridden by the passed in value of `2`.
+This function is still going to return the number `4`. The default value of `1` on `numA` will be overridden by the value of `2` that we passed in.
 
 ### Exercise 8: Default parameters
 
-```js
-// Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values:
+```javascript
+// ! Exercise 8:
+// a. Create a function with two parameters, `noun` and `adjective`.
+// 
+// b. Give `noun` a default value of "cat" and `adjective` a default value of 
+//    "orange".
+//
+// c. The function should log a sentence 'The cat is orange.' by default, but 
+//    should substitute the appropriate parameters when it is supplied with 
+//    arguments.
+//
+// Your code here:
 
-// 1. `cat`
-
-// 2. `white`
-
-// The function should log a sentence 'The cat is white.' by default. The function should substitute the appropriate parameters when supplied arguments.
-
-// Your code here
 ```
 
 ## Review: The ternary operator
 
-The ternary operator gives us a way to handle conditional logic in a single line of code. Ternaries can be viewed as a more concise version of an `if...else` statement. It can also simplify the process of assigning a value to a variable based on a condition.
+The ternary operator gives us a way to handle conditional logic in a single line of code. Ternaries can be viewed as a more concise version of an `if...else` statement. It can also simplify assigning a value to a variable based on a condition.
 
 A ternary consists of three parts:
 
@@ -469,83 +580,93 @@ console.log(access); // 'Yes'
 
 ### Exercise 9: Ternary operator
 
-```js
-// Convert the following `if...else` statement in to a ternary:
+```javascript
+// ! Exercise 9:
+// a. Convert the following `if...else` statement into a ternary:
+//
+//    if (pizza === 'tasty') {
+//      console.log('yum');
+//    } else {
+//      console.log('yuck');
+//    }
+//
+// Starting code (don't modify this):
 
-let pizza = 'tasty';
+const pizza = 'tasty';
 
-if (pizza === 'tasty') {
-  console.log('yum');
-} else {
-  console.log('yuck');
-}
+// Your code here:
 
-// Your code here
 ```
 
 ## Review: Boolean gates
 
-Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when used outside of `if...else` statements. In this context, they can be used to evaluate and return values directly, based on the truthiness or falsiness of the values involved.
+Logical operators such as `&&` (AND) and `||` (OR) play an interesting role when used outside of `if...else` statements. In this context, they can be used to evaluate and return values directly based on the truthiness or falsyness of the values involved.
 
 1. **The `&&` operator**
 
-The `&&` operator evaluates expressions from left to right and returns the **first falsy value** it encounters. If all values are truthy, it returns the last value.
+   The `&&` operator evaluates expressions from left to right and returns the **first falsy value** it encounters. If all values are truthy, it returns the last value.
 
-Let's take a look at a few examples of the `&&` operator at work:
+   Let's take a look at a few examples of the `&&` operator at work:
 
-- When the first expression (`false`) being evaluated is falsy, and `result` will be assigned that value (`false`).
+   - When the first expression (`false`) being evaluated is falsy, `result` will be assigned that value (`false`).
 
-  ```javascript
-  const result = false && 'foo';
-  console.log(result); // Output: false
-  ```
+     ```javascript
+     const result = false && 'foo';
+     console.log(result);
+     // Prints: false
+     ```
 
-- When the first value is truthy (`'hello'`) and the second value is falsy (`''`), the `result` is assigned the empty string (`''`), as it is the first falsy value encountered.
+   - When the first value is truthy (`'hello'`) and the second value is falsy (`''`), `result` is assigned the empty string (`''`), as it is the first falsy value encountered.
 
-  ```javascript
-  const result = 'hello' && '';
-  console.log(result); // Output: ''
-  ```
+     ```javascript
+     const result = 'hello' && '';
+     console.log(result);
+     // Prints: ''
+     ```
 
-- When both values are truthy, the result is the value of the last expression (`'bar'`).
+   - When both values are truthy, the result is the value of the last expression (`'bar'`).
 
-  ```javascript
-  const result = 'foo' && 'bar';
-  console.log(result); // Output: 'bar'
-  ```
+     ```javascript
+     const result = 'foo' && 'bar';
+     console.log(result); 
+     // Prints: 'bar'
+     ```
 
-> 💡 Remember, in JavaScript, falsy values include `''` (empty strings), `0`, `null`, `undefined`, `NaN`, and `false`. Everything else is considered truthy.
+   > 💡 Remember, in JavaScript, falsy values include `''` (empty strings), `0`, `null`, `undefined`, `NaN`, and `false`. Everything else is considered truthy.
 
 2. **The `||` operator**
 
-The `||` operator evaluates expressions from left to right and returns the **first truthy value** it encounters. If all values are falsy, it returns the last value.
+   The `||` operator evaluates expressions from left to right and returns the **first truthy value** it encounters. If all values are falsy, it returns the last value.
 
-Let's take a look at a few examples of the `||` operator at work:
+   Let's take a look at a few examples of the `||` operator at work:
 
-- When the first expression (`''`) is falsy, `result` is assigned `'foo'` as it's the first truthy value.
+   - When the first expression (`''`) is falsy, `result` is assigned `'foo'` as it's the first truthy value.
 
-  ```javascript
-  const result = '' || 'foo';
-  console.log(result); // Output: 'foo'
-  ```
+     ```javascript
+     const result = '' || 'foo';
+     console.log(result);
+     // Prints: 'foo'
+     ```
 
-- If the first value (`2`) is truthy, the evaluation stops, and `result` is assigned the first value (`2`).
+   - If the first value (`2`) is truthy, the evaluation stops, and `result` is assigned the first value (`2`).
 
-  ```javascript
-  const result = 2 || 0;
-  console.log(result); // Output: 2
-  ```
+     ```javascript
+     const result = 2 || 0;
+     console.log(result);
+     // Prints: 2
+     ```
 
-- When all values being evaluated are falsy (`''` and `0`), `result` is assigned the last value (`0`), as no truthy value is found.
+   - When all values being evaluated are falsy (`''` and `0`), `result` is assigned the last value (`0`), as no truthy value is found.
 
-  ```javascript
-  const result = '' || 0;
-  console.log(result); // Output: 0
-  ```
+     ```javascript
+     const result = '' || 0;
+     console.log(result);
+     // Prints: 0
+     ```
 
-> 💡 The `||` operator can be helpful for setting fallback or default values.
+   > 💡 The `||` operator can be helpful for setting fallback or default values.
 
-Can you guess what the values of the variables will be:
+Keeping what you've learned so far in mind, can you guess what the values of the variables will be?
 
 ```javascript
 const result1 = 'bar' && 'foo';
@@ -561,50 +682,64 @@ console.log('result4:', result4);
 
 ### Exercise 10: Boolean gates
 
-In modern JavaScript, a common pattern is to assign a default value to variables if no specific value is provided. This technique is especially useful in settings where configurations might be optional. For example, users might not set their language or theme preferences on a website, and you'd want to fall back to some default settings.
+In modern JavaScript, a common pattern is to assign a default value to variables if no specific value is provided. This technique is instrumental in settings where configurations might be optional.
 
-Now that you've seen how to assign default values using the logical OR operator, let's reinforce this concept with a direct application.
+For example, users might not set their language or theme preferences on a website, and you'd want to fall back to some default settings.
 
-- Let's assume we have a variable called `localLangConfig` that might contain a language code (like 'es' for Spanish, 'fr' for French) or might be `null` if no language is selected
-- Your task is to create a variable `LANG` that should use the value from `localLangConfig` if it's not null. If `localLangConfig` is null, default `LANG` to 'en' (English).
+Now that you've seen how to assign default values using the logical OR operator let's try it out with a direct application:
 
-```js
-// 1. SET LANGUAGE
+- Let's assume we have a variable called `localLangConfig` that might contain a language code (like `'es'` for Spanish, `'fr'` for French) or might be `null` if no language is selected.
+- Your task is to create a variable `lang` that should use the value from `localLangConfig` if it's not null. If `localLangConfig` is null, set `lang` to a default value, `'en'` (representing English).
 
-// Construct a single line of code that assigns a default value using the logical OR operator. This line should match the logic of the following statement: 
+```javascript
+// ! Exercise 10:
+// ! 10.1: Set language
+// a. Construct a single line of code that assigns a default value using the 
+//    logical OR operator. This line should match the logic of the following 
+//    statement:
+//
+//    "lang is equal to localLangConfig or the default value of English."
+//
+// b. Create a variable called `lang`.
+//
+// c. Assign `lang` the value of localLangConfig or 'en' as a default if 
+//    `localLangConfig is falsy.
+//
+// d. Log the value of `lang` to the console.
+//
+// Your code here (localLangConfig is provided to get you started):
 
-// "LANG is equal to localLangConfig or the default value of English."
+// Simulated language configuration (change this variable to test)
+const localLangConfig = null; // Change to 'es', 'fr', etc., or leave it `null`.
 
-const localLangConfig = null;  // Change to 'es', 'fr', etc., or keep it null
-
-// a. Create a variable called LANG
-// b. Assign LANG the value of localLangConfig or 'en' as a default
-
-// Your code here
-
-// Log the result
-console.log('Language setting:', LANG);
 ```
 
-Now, let's try this same pattern for setting a users website theme. 
+Now, let's try this same pattern to set a user's preferred theme on a website:
 
-```js
-// 2. SET WEBSITE THEME
+```javascript
+// ! 10.2: Set website theme
+// Intro: In this exercise, you'll construct a single line of code that assigns 
+//        a default value to a variable named `theme` using the logical OR 
+//        operator. This line should match the logic of the following statement:
+//
+//        "theme is equal to savedUserTheme or the default value of light."
+//
+// a. Create a variable called `theme`.
+//
+// b. Assign `theme` the value of `savedUserTheme` or 'light' as a default.
+//
+// c. Log the value of `theme` to the console.
+//
+// Your code here (`savedUserTheme` is provided to get you started):
 
-const userSavedTheme = null; // Change to 'dark', 'contrast', etc., or keep it null
+// Simulated user theme preference (change this variable to test)
+const savedUserTheme = null; // Change to 'dark', etc., or leave it `null`.
 
-// a. Create a variable called USER_THEME
-// b. Assign USER_THEME the value of userSavedTheme or 'light' as a default
-
-// Your code here
-
-// Log the result
-console.log('User theme setting:', USER_THEME);
 ```
 
 ### Review: Optional chaining
 
-Optional chaining is a way to safely access deeply nested properties in an object. This approach can help us avoid the errors that occur when attempting to access `undefined` or `null` properties.
+Optional chaining is a way to access deeply nested properties in an object safely. This approach helps us avoid errors when we attempt to access `undefined` or `null` properties.
 
 Consider a scenario where we attempt to access a property that doesn't exist, which normally results in an error:
 
@@ -613,12 +748,13 @@ const adventurer = {
   name: 'Alice',
 };
 
-console.log(adventurer.dog.name); // TypeError: Cannot read properties of undefined (reading 'name')
+console.log(adventurer.dog.name); 
+// TypeError: Cannot read properties of undefined (reading 'name')
 ```
 
-In this application, it's probable that the `dog` property might be added in later. This is where some optional chaining might prove useful.
+In this application, it's probable that the `dog` property might be added in later. This is where some optional chaining might prove helpful.
 
-Using `console.log(adventurer.dog?.name);` will allow our code to run without an error:
+Using `console.log(adventurer.dog?.name)` will allow our code to run without an error:
 
 ```javascript
 const adventurer = {
@@ -630,18 +766,21 @@ let dog = adventurer.dog?.name;
 console.log(dog); // undefined
 ```
 
-Now, instead of the non existent property causing an error, our code logs a value of `undefined`.
+Instead of the non-existent property causing an error, our code now logs `undefined`.
 
 ### Exercise 11: Optional chaining
 
-```js
-// Now check for `cat.age` on `adventurer`. See how it errors out? Use optional chaining in a console.log that it returns undefined instead.
+```javascript
+// ! Exercise 11:
+// a. Use optional chaining in a console.log so that a console log of
+//    `adventurer.cat.age` returns `undefined` instead of an error.
+//
+// Starting code (don't modify this):
 
 const adventurer = {
   name: 'Alice',
 };
 
-let cat; // Your code here
+// Your code here:
 
-console.log(cat);
 ```

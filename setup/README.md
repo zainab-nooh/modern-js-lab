@@ -1,4 +1,7 @@
-# ![Modern Javascript Syntax Lab - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">Modern JavaScript Syntax Lab</span>
+  <span class="subhead">Setup</span>
+</h1>
 
 ## Setup
 
@@ -13,10 +16,10 @@ Make a new repository on [GitHub](https://github.com/) named `modern-javascript-
 Clone a copy of your remote repo locally by using the `git clone` command:
 
 ```bash
-git clone https://github.com/<your-username>/modern-javascript-syntax-lab.git
+git clone https://github.com/<github-username>/modern-javascript-syntax-lab.git
 ```
 
-> 📚 Note: In the link above, where it says `<your-username>`, you should see the username from your GitHub account.
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
 
 Next, `cd` into your new cloned directory, `modern-javascript-syntax-lab`:
 

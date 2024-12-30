@@ -1,5 +1,7 @@
-# ![Instructor Guide](../assets/instructor-guide.png)
-
+<h1>
+  <span class="headline">Modern JavaScript Syntax Lab</span>
+  <span class="subhead">Instructor Guide</span>
+</h1>
 
 🏗️ **Under Construction**
 
