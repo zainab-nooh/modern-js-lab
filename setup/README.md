@@ -27,7 +27,13 @@ Next, `cd` into your new cloned directory, `modern-javascript-syntax-lab`:
 cd modern-javascript-syntax-lab
 ```
 
-Open the project's folder in your code editor:
+Create the file you'll do your work in:
+
+```bash
+touch app.js
+```
+
+Finally, open the project's folder in your code editor:
 
 ```bash
 code .

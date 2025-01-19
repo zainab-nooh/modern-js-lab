@@ -38,7 +38,7 @@ console.log(iceCreamFlavors);
 // Prints: ['vanilla ice cream', 'chocolate ice cream', 'strawberry ice cream']
 ```
 
-In this example, we've used the `map()` method is used to iterate over `flavors` to generate `iceCreamFlavors`. Each element in `iceCreamFlavors` is the result of appending `' ice cream'` to the end of a string element in `flavors`.
+In this example, we've used the `map()` method to iterate over `flavors` to generate `iceCreamFlavors`. Each element in `iceCreamFlavors` is the result of appending `' ice cream'` to the end of a string element in `flavors`.
 
 The `map()` method will call upon the provided function for every element in `flavors`. When called upon, the function receives the current element being processed as an argument. The value returned from the function is added to the new array.
 
