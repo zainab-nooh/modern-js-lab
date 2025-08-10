@@ -1,7 +1,7 @@
 {
   "name": "modern-javascript-syntax-lab",
   "version": "1.0.0",
-  "description": "",
+  "description": "<h1>\r   <span class=\"prefix\"></span>\r   <span class=\"headline\">Modern JavaScript Syntax Lab</span>\r </h1>",
   "scripts": {
     "mdv": "node md-validate.js"
   },
@@ -9,5 +9,16 @@
   "author": "General Assembly",
   "devDependencies": {
     "ga-mdlint": "^1.0.5"
-  }
+  },
+  "main": "md-validate.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zainab-nooh/modern-js-lab.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zainab-nooh/modern-js-lab/issues"
+  },
+  "homepage": "https://github.com/zainab-nooh/modern-js-lab#readme"
 }
